@@ -1,23 +1,39 @@
-'use client';
-
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import {
-  User as FirebaseUser,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-  signInWithPopup,
-  GoogleAuthProvider,
-  sendPasswordResetEmail,
-  updateProfile,
+import { createContext, useContext, useState, useEffect, ReactNode, useMemo, useCallback } from 'react';
+import { 
+  Auth, 
+  User as FirebaseUser, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signInWithPopup, 
+  GoogleAuthProvider, 
+  signOut, 
+  onAuthStateChanged, 
+  updateProfile, 
+  sendPasswordResetEmail 
 } from 'firebase/auth';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
-import { auth, db } from '@/lib/firebase';
-import { User } from '@/types';
-import toast from 'react-hot-toast';
+import { 
+  Firestore, 
+  doc, 
+  getDoc, 
+  setDoc, 
+  updateDoc 
+} from 'firebase/firestore';
+import { toast } from 'react-toastify';
+import { auth, db } from '../firebase/config';
 
-interface AuthContextType {
+// User type definition
+export interface User {
+  id: string;
+  email: string;
+  displayName: string;
+  photoURL?: string;
+  role: 'artist' | 'manager' | 'admin';
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// Auth context type definition
+export interface AuthContextType {
   user: User | null;
   firebaseUser: FirebaseUser | null;
   loading: boolean;
@@ -30,67 +46,66 @@ interface AuthContextType {
   updateUserProfile: (data: Partial<User>) => Promise<void>;
 }
 
-const AuthContext = createContext<AuthContextType | null>(null);
+// Create the auth context
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+// Custom hook to use the auth context
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (!context) {
+  if (context === undefined) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
 };
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+// Auth provider props
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+// Auth provider component
+export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [firebaseUser, setFirebaseUser] = useState<FirebaseUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Listen to auth state changes
+  // Effect to handle auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setFirebaseUser(firebaseUser);
       
       if (firebaseUser) {
-        // Fetch user data from Firestore
         try {
+          // Get user data from Firestore
           const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+          
           if (userDoc.exists()) {
             const userData = userDoc.data() as User;
-            setUser({
-              ...userData,
-              id: firebaseUser.uid,
-            });
+            setUser(userData);
           } else {
-            // Create user document if it doesn't exist
-            const newUser: User = {
-              id: firebaseUser.uid,
-              email: firebaseUser.email!,
-              displayName: firebaseUser.displayName || 'User',
-              photoURL: firebaseUser.photoURL || undefined,
-              role: 'artist', // Default role
-              createdAt: new Date(),
-              updatedAt: new Date(),
-            };
-            await setDoc(doc(db, 'users', firebaseUser.uid), newUser);
-            setUser(newUser);
+            // Handle case where Firebase user exists but no Firestore document
+            console.warn('User document not found in Firestore');
+            setUser(null);
           }
         } catch (error) {
           console.error('Error fetching user data:', error);
-          setError('Failed to load user data');
+          setUser(null);
+        } finally {
+          setLoading(false);
         }
       } else {
         setUser(null);
+        setLoading(false);
       }
-      
-      setLoading(false);
     });
 
+    // Cleanup subscription
     return () => unsubscribe();
   }, []);
 
   // Sign in with email and password
-  const signIn = async (email: string, password: string) => {
+  const signIn = useCallback(async (email: string, password: string) => {
     try {
       setError(null);
       await signInWithEmailAndPassword(auth, email, password);
@@ -101,10 +116,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       toast.error(errorMessage);
       throw error;
     }
-  };
+  }, []);
 
   // Sign up with email and password
-  const signUp = async (
+  const signUp = useCallback(async (
     email: string,
     password: string,
     displayName: string,
@@ -135,10 +150,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       toast.error(errorMessage);
       throw error;
     }
-  };
+  }, []);
 
   // Sign in with Google
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = useCallback(async () => {
     try {
       setError(null);
       const provider = new GoogleAuthProvider();
@@ -167,10 +182,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       toast.error(errorMessage);
       throw error;
     }
-  };
+  }, []);
 
   // Sign out
-  const logout = async () => {
+  const logout = useCallback(async () => {
     try {
       await signOut(auth);
       toast.success('Successfully signed out!');
@@ -180,10 +195,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       toast.error(errorMessage);
       throw error;
     }
-  };
+  }, []);
 
   // Reset password
-  const resetPassword = async (email: string) => {
+  const resetPassword = useCallback(async (email: string) => {
     try {
       setError(null);
       await sendPasswordResetEmail(auth, email);
@@ -194,10 +209,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       toast.error(errorMessage);
       throw error;
     }
-  };
+  }, []);
 
   // Update user profile
-  const updateUserProfile = async (data: Partial<User>) => {
+  const updateUserProfile = useCallback(async (data: Partial<User>) => {
     if (!user) return;
     
     try {
@@ -225,9 +240,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       toast.error(errorMessage);
       throw error;
     }
-  };
+  }, [user, firebaseUser]);
 
-  const value: AuthContextType = {
+  // Memoize context value to prevent unnecessary re-renders
+  const contextValue = useMemo(() => ({
     user,
     firebaseUser,
     loading,
@@ -238,9 +254,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     logout,
     resetPassword,
     updateUserProfile,
-  };
+  }), [
+    user, 
+    firebaseUser, 
+    loading, 
+    error, 
+    signIn, 
+    signUp, 
+    signInWithGoogle, 
+    logout, 
+    resetPassword, 
+    updateUserProfile
+  ]);
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
 };
 
 // Helper function to get user-friendly error messages
