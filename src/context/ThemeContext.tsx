@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode, useMemo, useCallback } from 'react';
 
 type Theme = 'light' | 'dark' | 'system';
 
@@ -34,6 +34,22 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     return 'system';
   });
 
+  // Memoized function to handle theme changes
+  const handleThemeChange = useCallback((newTheme: Theme) => {
+    setTheme(newTheme);
+    
+    // Save to localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', newTheme);
+    }
+  }, []);
+
+  // Memoized toggle function
+  const toggleTheme = useCallback(() => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    handleThemeChange(newTheme);
+  }, [theme, handleThemeChange]);
+
   // Apply theme effect
   useEffect(() => {
     // Apply theme to document
@@ -44,9 +60,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       document.documentElement.classList.add('light');
       document.documentElement.classList.remove('dark');
     }
-
-    // Save to localStorage
-    localStorage.setItem('theme', theme);
   }, [theme]);
 
   // Listen for system theme changes when in system mode
@@ -69,21 +82,15 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, [theme]);
 
-  const handleThemeChange = (newTheme: Theme) => {
-    setTheme(newTheme);
-  };
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-  };
+  // Memoize context value to prevent unnecessary re-renders
+  const contextValue = useMemo(() => ({
+    theme,
+    setTheme: handleThemeChange,
+    toggleTheme
+  }), [theme, handleThemeChange, toggleTheme]);
 
   return (
-    <ThemeContext.Provider value={{ 
-      theme, 
-      setTheme: handleThemeChange,
-      toggleTheme 
-    }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );

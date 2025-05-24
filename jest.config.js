@@ -1,32 +1,54 @@
-const nextJest = require('next/jest');
-
-const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: './',
-});
-
-// Add any custom config to be passed to Jest
-const customJestConfig = {
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  testEnvironment: 'jest-environment-jsdom',
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
-    '^@components/(.*)$': '<rootDir>/src/components/$1',
-    '^@lib/(.*)$': '<rootDir>/src/lib/$1',
-    '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
-    '^@services/(.*)$': '<rootDir>/src/services/$1',
-    '^@types/(.*)$': '<rootDir>/src/types/$1',
-    '^@utils/(.*)$': '<rootDir>/src/utils/$1',
-    '^@context/(.*)$': '<rootDir>/src/context/$1',
-    '^@styles/(.*)$': '<rootDir>/src/styles/$1',
-  },
-  collectCoverageFrom: [
-    'src/**/*.{js,jsx,ts,tsx}',
-    '!src/**/*.d.ts',
-    '!src/**/*.stories.{js,jsx,ts,tsx}',
-    '!src/**/__tests__/**',
+// jest.config.js
+module.exports = {
+  // Directorios donde Jest buscará los tests
+  testMatch: [
+    "**/__tests__/**/*.test.[jt]s?(x)",
+    "**/?(*.)+(spec|test).[jt]s?(x)"
   ],
+  
+  // Extensiones de archivo que Jest procesará
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  
+  // Transformadores para diferentes tipos de archivos
+  transform: {
+    "^.+\\.(ts|tsx|js|jsx)$": "babel-jest"
+  },
+  
+  // Patrones de transformación para node_modules
+  transformIgnorePatterns: [
+    "/node_modules/(?!(@firebase|firebase|react-firebase-hooks|next|@next)/)"
+  ],
+  
+  // Configuración de entorno
+  testEnvironment: "jsdom",
+  
+  // Mapeo de alias de importación
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  
+  // Archivos de configuración global para tests
+  setupFilesAfterEnv: [
+    "<rootDir>/src/test-utils/jest.setup.ts"
+  ],
+  
+  // Cobertura de código
+  collectCoverageFrom: [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!src/**/*.d.ts",
+    "!src/test-utils/**/*"
+  ],
+  
+  // Umbral de cobertura
+  coverageThreshold: {
+    global: {
+      branches: 70,
+      functions: 70,
+      lines: 70,
+      statements: 70
+    }
+  },
+  
+  // Directorio donde se guardarán los informes de cobertura
+  coverageDirectory: "coverage"
 };
-
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig);
