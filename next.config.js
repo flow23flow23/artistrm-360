@@ -1,21 +1,33 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  webpack: (config) => {
+    // Configuración adicional de webpack si es necesaria
+    return config;
+  },
+  // Configuración para imágenes optimizadas
   images: {
-    domains: [
-      'localhost',
-      'firebasestorage.googleapis.com',
-      'lh3.googleusercontent.com', // Google profile images
-      'avatars.githubusercontent.com', // GitHub profile images
-    ],
+    domains: ['firebasestorage.googleapis.com'],
   },
-  experimental: {
-    // Enable if needed for specific features
+  // Configuración de internacionalización
+  i18n: {
+    locales: ['es', 'en'],
+    defaultLocale: 'es',
   },
-  // Environment variables that should be available on the client
-  env: {
-    NEXT_PUBLIC_APP_NAME: 'ArtistRM 360',
-    NEXT_PUBLIC_APP_VERSION: '1.0.0',
+  // Configuración de redirecciones
+  async redirects() {
+    return [
+      {
+        source: '/artists',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/integrations',
+        destination: '/api',
+        permanent: true,
+      },
+    ];
   },
-}
+};
+
+module.exports = nextConfig;

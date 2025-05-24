@@ -1,236 +1,112 @@
-# ArtistRM 360 - Plataforma SaaS para Gestión de Carreras Artísticas
+# ArtistRM 360 - Plataforma SaaS de Road Management Artístico
 
-![ArtistRM 360](https://img.shields.io/badge/ArtistRM-360-blue)
-![Version](https://img.shields.io/badge/version-1.0.0-green)
-![Status](https://img.shields.io/badge/status-beta-orange)
+## Descripción
 
-ArtistRM 360 es una plataforma SaaS integral diseñada para artistas y managers en la industria musical, centralizando todas las herramientas necesarias para gestionar carreras artísticas de manera eficiente y profesional.
+ArtistRM 360 es una plataforma SaaS integral diseñada para artistas y managers musicales que proporciona herramientas completas para la gestión de carrera artística, desde la planificación de proyectos hasta el análisis de rendimiento y la gestión financiera.
 
-## 🌟 Características Principales
+## Estructura del Proyecto
 
-- **Dashboard Interactivo**: Métricas clave y actividad reciente
-- **Gestión de Proyectos**: Álbumes, sencillos, colaboraciones y giras
-- **Biblioteca de Contenido**: Organización y gestión de assets multimedia
-- **Finanzas**: Seguimiento de ingresos, gastos y proyecciones
-- **Analytics**: Análisis de rendimiento en plataformas y redes sociales
-- **Eventos**: Planificación y gestión de giras y presentaciones
-- **Zeus IA**: Asistente virtual para automatización y análisis predictivo
-- **Integraciones**: Conexión con plataformas de streaming, redes sociales y servicios de distribución
+El proyecto sigue la arquitectura App Router de Next.js con TypeScript, organizada de la siguiente manera:
 
-## 🛠️ Stack Tecnológico
+```
+src/
+├── app/                    # Rutas y páginas (App Router)
+│   ├── (auth)/             # Grupo de rutas de autenticación
+│   │   ├── login/
+│   │   └── register/
+│   ├── dashboard/          # Dashboard principal
+│   ├── projects/           # Gestión de proyectos
+│   ├── content/            # Biblioteca de contenido
+│   ├── analytics/          # Análisis y métricas
+│   ├── finances/           # Gestión financiera
+│   ├── events/             # Gestión de eventos
+│   └── zeus/               # Asistente IA Zeus
+├── components/             # Componentes React
+│   ├── layout/             # Componentes de layout
+│   ├── ui/                 # Componentes de UI reutilizables
+│   └── [module]/           # Componentes específicos por módulo
+├── context/                # Contextos de React (auth, theme)
+├── hooks/                  # Custom hooks
+├── lib/                    # Bibliotecas y configuraciones
+│   ├── firebase/           # Configuración de Firebase
+│   └── api/                # Clientes de API
+├── styles/                 # Estilos globales y temas
+├── types/                  # Definiciones de TypeScript
+└── utils/                  # Funciones utilitarias
+```
 
-- **Frontend**: Next.js, TypeScript, Tailwind CSS
+## Tecnologías Principales
+
+- **Frontend**: Next.js, TypeScript, React
 - **Backend**: Firebase (Authentication, Firestore, Storage, Functions)
-- **State Management**: Zustand, React Query
-- **UI Components**: Custom components with Framer Motion animations
-- **Charts**: Chart.js with React Chart.js 2
-- **AI**: Google Gemini Pro (for Zeus AI)
-- **Integraciones**: n8n para automatización de flujos de trabajo
+- **Integración**: n8n para automatizaciones y conexión con APIs externas
+- **IA**: Zeus - Asistente inteligente basado en Gemini Pro
 
-## 📋 Requisitos Previos
+## Características
 
-- Node.js 18+ y npm 9+
-- Firebase CLI (`npm install -g firebase-tools`)
-- Git
-- Un proyecto Firebase (crear uno en [Firebase Console](https://console.firebase.google.com))
+- Dashboard interactivo con métricas y actividad reciente
+- Gestión de proyectos (álbumes, sencillos, giras)
+- Biblioteca de contenido multimedia
+- Finanzas y reportes financieros
+- Eventos y gestión de giras
+- Analytics avanzados
+- Asistente Zeus IA
 
-## 🚀 Primeros Pasos
+## Desarrollo
 
-### 1. Clonar el repositorio
+### Requisitos
+
+- Node.js 18.x o superior
+- npm 9.x o superior
+- Cuenta de Firebase
+
+### Instalación
 
 ```bash
+# Clonar el repositorio
 git clone https://github.com/flow23flow23/artistrm-360.git
 cd artistrm-360
-```
 
-### 2. Instalar dependencias
-
-```bash
-# Instalar dependencias del frontend
+# Instalar dependencias
 npm install
-# Instalar dependencias de Cloud Functions
-cd functions
-npm install
-cd ..
-```
 
-### 3. Configurar variables de entorno
-
-Copia el archivo de entorno de ejemplo y completa con tus credenciales de Firebase y APIs:
-
-```bash
+# Configurar variables de entorno
 cp .env.example .env.local
-```
+# Editar .env.local con tus credenciales de Firebase
 
-Edita `.env.local` con tus valores:
-
-```env
-# Configuración de Firebase
-NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
-NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
-# Desarrollo
-NEXT_PUBLIC_USE_FIREBASE_EMULATORS=true
-# APIs Externas
-GEMINI_API_KEY=your_gemini_api_key
-SPOTIFY_CLIENT_ID=your_spotify_client_id
-# ... etc
-```
-
-### 4. Configuración de Firebase
-
-Inicia sesión en Firebase y selecciona tu proyecto:
-
-```bash
-firebase login
-firebase use --add
-```
-
-Inicializa los servicios de Firebase (si no lo has hecho ya):
-
-```bash
-firebase init
-```
-
-### 5. Iniciar servidores de desarrollo
-
-```bash
-# Iniciar Next.js y emuladores de Firebase
-npm run dev:all
-# O iniciarlos por separado:
-# Terminal 1: Iniciar emuladores de Firebase
-npm run firebase:emulators
-# Terminal 2: Iniciar servidor de desarrollo Next.js
+# Iniciar servidor de desarrollo
 npm run dev
 ```
 
-La aplicación estará disponible en:
-- Frontend: http://localhost:3000
-- UI de Emuladores Firebase: http://localhost:4000
+### Scripts Disponibles
 
-## 📁 Estructura del Proyecto
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye la aplicación para producción
+- `npm run start` - Inicia la aplicación construida
+- `npm run test` - Ejecuta los tests
+- `npm run lint` - Ejecuta el linter
 
-```
-artistrm-360/
-├── src/
-│   ├── app/              # Páginas con Next.js app router
-│   ├── components/       # Componentes React
-│   ├── context/          # Contextos React (auth, theme)
-│   ├── hooks/            # Custom React hooks
-│   ├── lib/              # Bibliotecas y utilidades
-│   ├── services/         # Servicios API y Firebase
-│   ├── styles/           # Estilos globales y Tailwind
-│   ├── types/            # Definiciones de tipos TypeScript
-│   └── utils/            # Funciones auxiliares
-├── frontend/            # Componentes y lógica específica del frontend
-├── backend/             # Servicios y lógica de backend
-├── functions/           # Firebase Cloud Functions
-├── firebase-deploy/     # Configuración para despliegue en Firebase
-├── public/              # Assets estáticos
-├── firebase.json        # Configuración de Firebase
-├── firestore.rules      # Reglas de seguridad de Firestore
-├── storage.rules        # Reglas de seguridad de Storage
-└── package.json         # Dependencias del proyecto
-```
+## Despliegue
 
-## 🔧 Desarrollo
-
-### Ejecutar pruebas
+La aplicación está configurada para despliegue automático en Firebase Hosting mediante GitHub Actions.
 
 ```bash
-# Ejecutar pruebas unitarias
-npm test
-# Ejecutar pruebas en modo watch
-npm run test:watch
-# Generar informe de cobertura
-npm run test:coverage
-```
-
-### Linting y formateo
-
-```bash
-# Ejecutar ESLint
-npm run lint
-# Formatear código con Prettier
-npm run format
-# Verificación de tipos
-npm run type-check
-```
-
-### Compilar para producción
-
-```bash
-# Compilar la aplicación
+# Despliegue manual
 npm run build
-# Iniciar servidor de producción localmente
-npm run start
-```
-
-## 🚀 Despliegue
-
-### Desplegar en Firebase Hosting
-
-```bash
-# Compilar y desplegar todo
 firebase deploy
-# Desplegar solo hosting
-firebase deploy --only hosting
-# Desplegar solo functions
-firebase deploy --only functions
-# Desplegar solo reglas
-firebase deploy --only firestore:rules,storage:rules
 ```
 
-## 🔐 Seguridad
+## Contribución
 
-- Todas las rutas API están protegidas con Firebase Authentication
-- Firestore y Storage tienen reglas de seguridad configuradas
-- Se utilizan variables de entorno para datos sensibles
-- CORS está configurado adecuadamente
-- Validación de entrada en todos los formularios
+1. Crear una rama para tu característica (`git checkout -b feature/amazing-feature`)
+2. Hacer commit de tus cambios (`git commit -m 'feat: add amazing feature'`)
+3. Hacer push a la rama (`git push origin feature/amazing-feature`)
+4. Abrir un Pull Request
 
-## 📚 Estado de Implementación de Características
+## Licencia
 
-- ✅ Autenticación (Email/Password, Google)
-- ✅ Dashboard con estadísticas
-- ✅ UI básica de gestión de proyectos
-- ✅ UI de biblioteca de contenido
-- ⚠️ Gestión financiera (solo UI)
-- ⚠️ Calendario de eventos (solo UI)
-- ⚠️ Dashboard de analytics (datos de prueba)
-- 🚧 Asistente Zeus IA (planificado)
-- 🚧 Integraciones externas (planificado)
-- 🚧 Colaboración en equipo (planificado)
-
-Leyenda: ✅ Completo | ⚠️ Parcial | 🚧 En Progreso | ❌ No Iniciado
-
-## 🤝 Contribuir
-
-1. Haz un fork del repositorio
-2. Crea tu rama de características (`git checkout -b feature/caracteristica-increible`)
-3. Haz commit de tus cambios (`git commit -m 'Añadir alguna característica increíble'`)
-4. Haz push a la rama (`git push origin feature/caracteristica-increible`)
-5. Abre un Pull Request
-
-## 📝 Licencia
-
-Este proyecto es software propietario. Todos los derechos reservados.
-
-## 🆘 Soporte
-
-Para soporte, envía un email a support@artistrm360.com o únete a nuestro canal de Slack.
-
-## 🙏 Agradecimientos
-
-- Equipo de Firebase por la excelente infraestructura backend
-- Equipo de Next.js por el increíble framework React
-- Tailwind CSS por el framework CSS utility-first
-- Todos nuestros beta testers y early adopters
+Este proyecto es propiedad de ArtistRM y está protegido por derechos de autor.
 
 ---
 
-Construido con ❤️ por el Equipo ArtistRM
+Desarrollado por el equipo de ArtistRM con la asistencia de manus.im
