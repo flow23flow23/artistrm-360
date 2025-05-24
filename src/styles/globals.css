@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 15 15 15;
+    --foreground: 255 255 255;
+    
+    --card: 31 31 31;
+    --card-foreground: 255 255 255;
+    
+    --primary: 0 255 204;
+    --primary-foreground: 15 15 15;
+    
+    --secondary: 255 0 102;
+    --secondary-foreground: 255 255 255;
+    
+    --accent: 255 204 0;
+    --accent-foreground: 15 15 15;
+    
+    --muted: 102 102 102;
+    --muted-foreground: 179 179 179;
+    
+    --border: 51 51 51;
+    --input: 51 51 51;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-zam-bg-primary text-zam-text-primary;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-zam-bg-secondary;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zam-border-primary rounded-full;
+    transition: background-color 0.2s;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-zam-border-secondary;
+  }
+  
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(51 51 51) rgb(26 26 26);
+  }
+  
+  /* Selection color */
+  ::selection {
+    @apply bg-zam-accent-primary/30 text-zam-text-primary;
+  }
+}
+
+@layer components {
+  /* Glass morphism effect */
+  .glass {
+    @apply backdrop-blur-md bg-zam-bg-card/30 border border-zam-border-primary;
+  }
+  
+  /* Neon glow effect */
+  .glow {
+    @apply shadow-zam;
+  }
+  
+  .glow-hover {
+    @apply hover:shadow-zam-lg transition-shadow duration-300;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-zam-bg-card rounded-lg border border-zam-border-primary p-6;
+  }
+  
+  .card-hover {
+    @apply hover:bg-zam-bg-hover hover:border-zam-border-secondary transition-all duration-200;
+  }
+  
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-all 
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 
+           disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-zam-accent-primary text-zam-bg-primary hover:bg-zam-accent-primary/90 
+           focus-visible:ring-zam-accent-primary shadow-zam;
+  }
+  
+  .btn-secondary {
+    @apply bg-zam-accent-secondary text-white hover:bg-zam-accent-secondary/90 
+           focus-visible:ring-zam-accent-secondary;
+  }
+  
+  .btn-outline {
+    @apply border border-zam-border-primary bg-transparent hover:bg-zam-bg-hover 
+           focus-visible:ring-zam-border-secondary;
+  }
+  
+  .btn-ghost {
+    @apply hover:bg-zam-bg-hover focus-visible:ring-zam-border-primary;
+  }
+  
+  /* Input styles */
+  .input {
+    @apply flex h-10 w-full rounded-md border border-zam-border-primary bg-zam-bg-secondary 
+           px-3 py-2 text-sm text-zam-text-primary placeholder:text-zam-text-tertiary 
+           focus:outline-none focus:ring-2 focus:ring-zam-accent-primary/50 focus:border-zam-accent-primary
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  /* Label styles */
+  .label {
+    @apply text-sm font-medium text-zam-text-secondary;
+  }
+  
+  /* Animations */
+  .animate-in {
+    animation: animateIn 0.5s ease-out;
+  }
+  
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Loading spinner */
+  .spinner {
+    @apply inline-block w-4 h-4 border-2 border-zam-accent-primary border-t-transparent rounded-full animate-spin;
+  }
+  
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors;
+  }
+  
+  .badge-primary {
+    @apply bg-zam-accent-primary/20 text-zam-accent-primary;
+  }
+  
+  .badge-secondary {
+    @apply bg-zam-accent-secondary/20 text-zam-accent-secondary;
+  }
+  
+  .badge-success {
+    @apply bg-zam-accent-success/20 text-zam-accent-success;
+  }
+  
+  .badge-warning {
+    @apply bg-zam-accent-warning/20 text-zam-accent-warning;
+  }
+  
+  .badge-danger {
+    @apply bg-zam-accent-danger/20 text-zam-accent-danger;
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-zam-accent-primary to-zam-accent-secondary bg-clip-text text-transparent;
+  }
+  
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+  
+  /* Focus ring */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-zam-accent-primary/50 focus:ring-offset-2 focus:ring-offset-zam-bg-primary;
+  }
+}

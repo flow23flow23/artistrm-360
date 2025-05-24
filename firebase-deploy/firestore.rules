@@ -1,0 +1,100 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Reglas para usuarios
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+      
+      // Subcollecciones de usuarios
+      match /{subcollection}/{docId} {
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+    
+    // Reglas para artistas
+    match /artists/{artistId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && (
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin) ||
+        exists(/databases/$(database)/documents/artists/$(artistId)/managers/$(request.auth.uid))
+      );
+      
+      // Subcollecciones de artistas
+      match /{subcollection}/{docId} {
+        allow read: if request.auth != null;
+        allow write: if request.auth != null && (
+          exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin) ||
+          exists(/databases/$(database)/documents/artists/$(artistId)/managers/$(request.auth.uid))
+        );
+      }
+    }
+    
+    // Reglas para proyectos
+    match /projects/{projectId} {
+      allow read: if request.auth != null && (
+        exists(/databases/$(database)/documents/projects/$(projectId)/members/$(request.auth.uid)) ||
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin)
+      );
+      allow write: if request.auth != null && (
+        exists(/databases/$(database)/documents/projects/$(projectId)/members/$(request.auth.uid)) ||
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin)
+      );
+      
+      // Subcollecciones de proyectos
+      match /{subcollection}/{docId} {
+        allow read: if request.auth != null && (
+          exists(/databases/$(database)/documents/projects/$(projectId)/members/$(request.auth.uid)) ||
+          exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin)
+        );
+        allow write: if request.auth != null && (
+          exists(/databases/$(database)/documents/projects/$(projectId)/members/$(request.auth.uid)) ||
+          exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin)
+        );
+      }
+    }
+    
+    // Reglas para contenido
+    match /content/{contentId} {
+      allow read: if request.auth != null && (
+        resource.data.visibility == 'public' ||
+        resource.data.ownerId == request.auth.uid ||
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin)
+      );
+      allow write: if request.auth != null && (
+        resource.data.ownerId == request.auth.uid ||
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin)
+      );
+    }
+    
+    // Reglas para analytics
+    match /analytics/{docId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin);
+    }
+    
+    // Reglas para integraciones
+    match /integrations/{integrationId} {
+      allow read: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+      allow write: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+    }
+    
+    // Reglas para workflows
+    match /workflows/{workflowId} {
+      allow read: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+      allow write: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+    }
+    
+    // Reglas para configuración de Zeus
+    match /zeus/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}

@@ -1,0 +1,321 @@
+<!-- Content Section -->
+<section id="content-section" class="section">
+    <div class="section-header">
+        <h2>Biblioteca de Contenido</h2>
+        <p>Gestiona tus archivos multimedia, imágenes, audio y video</p>
+    </div>
+
+    <!-- Content Controls -->
+    <div class="controls-bar">
+        <div class="search-filter">
+            <input type="text" class="form-control" placeholder="Buscar contenido...">
+        </div>
+        <div class="filter-options">
+            <select class="form-select">
+                <option value="all">Todos los tipos</option>
+                <option value="audio">Audio</option>
+                <option value="image">Imágenes</option>
+                <option value="video">Video</option>
+                <option value="document">Documentos</option>
+            </select>
+        </div>
+        <div class="view-options">
+            <button class="btn btn-icon active" id="grid-view-btn"><i class="fas fa-th"></i></button>
+            <button class="btn btn-icon" id="list-view-btn"><i class="fas fa-list"></i></button>
+        </div>
+        <button class="btn btn-primary">
+            <i class="fas fa-upload"></i> Subir Contenido
+        </button>
+    </div>
+
+    <!-- Content Grid View -->
+    <div class="content-grid active" id="content-grid-view">
+        <!-- Audio Item -->
+        <div class="content-card card">
+            <div class="content-preview audio">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="content-info">
+                <h4 class="content-title">Amanecer (Master)</h4>
+                <div class="content-meta">
+                    <span><i class="fas fa-music"></i> Audio</span>
+                    <span><i class="fas fa-clock"></i> 3:45</span>
+                </div>
+                <div class="content-tags">
+                    <span class="badge-pill badge-primary">Sencillo</span>
+                    <span class="badge-pill badge-secondary">2025</span>
+                </div>
+            </div>
+            <div class="content-actions">
+                <button class="btn btn-icon"><i class="fas fa-play"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+        </div>
+
+        <!-- Image Item -->
+        <div class="content-card card">
+            <div class="content-preview image">
+                <img src="https://via.placeholder.com/300x300" alt="Cover Art">
+            </div>
+            <div class="content-info">
+                <h4 class="content-title">Portada Álbum</h4>
+                <div class="content-meta">
+                    <span><i class="fas fa-image"></i> Imagen</span>
+                    <span><i class="fas fa-ruler-combined"></i> 3000x3000</span>
+                </div>
+                <div class="content-tags">
+                    <span class="badge-pill badge-primary">Portada</span>
+                    <span class="badge-pill badge-secondary">Oficial</span>
+                </div>
+            </div>
+            <div class="content-actions">
+                <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+        </div>
+
+        <!-- Video Item -->
+        <div class="content-card card">
+            <div class="content-preview video">
+                <i class="fas fa-video"></i>
+            </div>
+            <div class="content-info">
+                <h4 class="content-title">Videoclip Oficial</h4>
+                <div class="content-meta">
+                    <span><i class="fas fa-video"></i> Video</span>
+                    <span><i class="fas fa-clock"></i> 4:12</span>
+                </div>
+                <div class="content-tags">
+                    <span class="badge-pill badge-primary">Videoclip</span>
+                    <span class="badge-pill badge-secondary">4K</span>
+                </div>
+            </div>
+            <div class="content-actions">
+                <button class="btn btn-icon"><i class="fas fa-play"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+        </div>
+
+        <!-- Document Item -->
+        <div class="content-card card">
+            <div class="content-preview document">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="content-info">
+                <h4 class="content-title">Contrato Distribución</h4>
+                <div class="content-meta">
+                    <span><i class="fas fa-file"></i> PDF</span>
+                    <span><i class="fas fa-clock"></i> 15 May 2025</span>
+                </div>
+                <div class="content-tags">
+                    <span class="badge-pill badge-primary">Legal</span>
+                    <span class="badge-pill badge-secondary">Firmado</span>
+                </div>
+            </div>
+            <div class="content-actions">
+                <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+        </div>
+
+        <!-- More Audio Items -->
+        <div class="content-card card">
+            <div class="content-preview audio">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="content-info">
+                <h4 class="content-title">Ecos del Silencio - Track 01</h4>
+                <div class="content-meta">
+                    <span><i class="fas fa-music"></i> Audio</span>
+                    <span><i class="fas fa-clock"></i> 4:22</span>
+                </div>
+                <div class="content-tags">
+                    <span class="badge-pill badge-primary">Álbum</span>
+                    <span class="badge-pill badge-secondary">2025</span>
+                </div>
+            </div>
+            <div class="content-actions">
+                <button class="btn btn-icon"><i class="fas fa-play"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+        </div>
+
+        <!-- More Image Items -->
+        <div class="content-card card">
+            <div class="content-preview image">
+                <img src="https://via.placeholder.com/300x200" alt="Promo Photo">
+            </div>
+            <div class="content-info">
+                <h4 class="content-title">Foto Promocional</h4>
+                <div class="content-meta">
+                    <span><i class="fas fa-image"></i> Imagen</span>
+                    <span><i class="fas fa-ruler-combined"></i> 2000x1500</span>
+                </div>
+                <div class="content-tags">
+                    <span class="badge-pill badge-primary">Promo</span>
+                    <span class="badge-pill badge-secondary">Redes</span>
+                </div>
+            </div>
+            <div class="content-actions">
+                <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content List View -->
+    <div class="content-list" id="content-list-view">
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Tamaño</th>
+                        <th>Fecha</th>
+                        <th>Proyecto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="content-name">
+                                <i class="fas fa-music"></i>
+                                <span>Amanecer (Master)</span>
+                            </div>
+                        </td>
+                        <td>Audio</td>
+                        <td>8.4 MB</td>
+                        <td>15 May 2025</td>
+                        <td>Amanecer</td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-play"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="content-name">
+                                <i class="fas fa-image"></i>
+                                <span>Portada Álbum</span>
+                            </div>
+                        </td>
+                        <td>Imagen</td>
+                        <td>2.1 MB</td>
+                        <td>14 May 2025</td>
+                        <td>Ecos del Silencio</td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="content-name">
+                                <i class="fas fa-video"></i>
+                                <span>Videoclip Oficial</span>
+                            </div>
+                        </td>
+                        <td>Video</td>
+                        <td>245 MB</td>
+                        <td>10 May 2025</td>
+                        <td>Amanecer</td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-play"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="content-name">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Contrato Distribución</span>
+                            </div>
+                        </td>
+                        <td>PDF</td>
+                        <td>1.2 MB</td>
+                        <td>15 May 2025</td>
+                        <td>Amanecer</td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="content-name">
+                                <i class="fas fa-music"></i>
+                                <span>Ecos del Silencio - Track 01</span>
+                            </div>
+                        </td>
+                        <td>Audio</td>
+                        <td>9.1 MB</td>
+                        <td>05 May 2025</td>
+                        <td>Ecos del Silencio</td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-play"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="content-name">
+                                <i class="fas fa-image"></i>
+                                <span>Foto Promocional</span>
+                            </div>
+                        </td>
+                        <td>Imagen</td>
+                        <td>1.8 MB</td>
+                        <td>01 May 2025</td>
+                        <td>Promo</td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Subir Nuevo Contenido</h3>
+        </div>
+        <div class="card-body">
+            <div class="file-upload" id="file-upload-area">
+                <div class="file-upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="file-upload-text">
+                    <p>Arrastra y suelta archivos aquí o haz clic para seleccionar</p>
+                    <p class="text-small">Formatos soportados: MP3, WAV, JPG, PNG, MP4, PDF</p>
+                </div>
+                <input type="file" class="file-upload-input" id="file-upload-input" multiple>
+            </div>
+            <div class="upload-progress" id="upload-progress" style="display: none;">
+                <div class="progress-label">
+                    <span id="upload-filename">archivo.mp3</span>
+                    <span id="upload-percentage">0%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" id="upload-progress-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

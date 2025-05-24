@@ -1,0 +1,112 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    function hasRole(role) {
+      return isSignedIn() && 
+        request.auth.token.role == role;
+    }
+    
+    function isAdmin() {
+      return hasRole('admin');
+    }
+    
+    function isManager() {
+      return hasRole('manager') || isAdmin();
+    }
+    
+    function isArtist() {
+      return hasRole('artist') || isManager();
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId) || isAdmin();
+    }
+    
+    // Projects collection
+    match /projects/{projectId} {
+      allow read: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        request.auth.uid in resource.data.teamMembers ||
+        isManager()
+      );
+      allow create: if isArtist();
+      allow update: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        request.auth.uid in resource.data.teamMembers ||
+        isManager()
+      );
+      allow delete: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        isAdmin()
+      );
+    }
+    
+    // Content collection
+    match /content/{contentId} {
+      allow read: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        request.auth.uid in resource.data.sharedWith ||
+        isManager()
+      );
+      allow create: if isArtist();
+      allow update: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        isManager()
+      );
+      allow delete: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        isAdmin()
+      );
+    }
+    
+    // Events collection
+    match /events/{eventId} {
+      allow read: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        request.auth.uid in resource.data.teamMembers ||
+        isManager()
+      );
+      allow write: if isArtist();
+    }
+    
+    // Analytics collection (read-only for users)
+    match /analytics/{analyticsId} {
+      allow read: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        isManager()
+      );
+      allow write: if false; // Only Cloud Functions can write
+    }
+    
+    // Finances collection
+    match /finances/{financeId} {
+      allow read: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        isManager()
+      );
+      allow write: if isSignedIn() && (
+        resource.data.userId == request.auth.uid ||
+        isManager()
+      );
+    }
+    
+    // Notifications collection
+    match /notifications/{notificationId} {
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if false; // Only Cloud Functions can create
+    }
+  }
+}

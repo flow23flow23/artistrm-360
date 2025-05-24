@@ -1,0 +1,320 @@
+<!-- Events Section -->
+<section id="events-section" class="section">
+    <div class="section-header">
+        <h2>Eventos y Giras</h2>
+        <p>Gestiona conciertos, giras, apariciones y eventos promocionales</p>
+    </div>
+
+    <!-- Calendar View -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Calendario de Eventos</h3>
+            <div class="calendar-controls">
+                <button class="btn btn-icon"><i class="fas fa-chevron-left"></i></button>
+                <span class="calendar-title">Mayo 2025</span>
+                <button class="btn btn-icon"><i class="fas fa-chevron-right"></i></button>
+                <select class="form-select">
+                    <option value="month">Mes</option>
+                    <option value="week">Semana</option>
+                    <option value="day">Día</option>
+                    <option value="agenda">Agenda</option>
+                </select>
+            </div>
+        </div>
+        <div class="calendar-container" id="events-calendar">
+            <div class="calendar-grid">
+                <div class="calendar-day header">Dom</div>
+                <div class="calendar-day header">Lun</div>
+                <div class="calendar-day header">Mar</div>
+                <div class="calendar-day header">Mié</div>
+                <div class="calendar-day header">Jue</div>
+                <div class="calendar-day header">Vie</div>
+                <div class="calendar-day header">Sáb</div>
+                
+                <div class="calendar-day other-month">28</div>
+                <div class="calendar-day other-month">29</div>
+                <div class="calendar-day other-month">30</div>
+                <div class="calendar-day">1</div>
+                <div class="calendar-day">2</div>
+                <div class="calendar-day">3</div>
+                <div class="calendar-day">4</div>
+                
+                <div class="calendar-day">5</div>
+                <div class="calendar-day">6</div>
+                <div class="calendar-day">7</div>
+                <div class="calendar-day">8</div>
+                <div class="calendar-day">9</div>
+                <div class="calendar-day">10</div>
+                <div class="calendar-day">11</div>
+                
+                <div class="calendar-day">12</div>
+                <div class="calendar-day">13</div>
+                <div class="calendar-day">14</div>
+                <div class="calendar-day">
+                    15
+                    <div class="calendar-event">Concierto Teatro Metropolitan</div>
+                </div>
+                <div class="calendar-day">16</div>
+                <div class="calendar-day">17</div>
+                <div class="calendar-day">18</div>
+                
+                <div class="calendar-day">19</div>
+                <div class="calendar-day">20</div>
+                <div class="calendar-day">21</div>
+                <div class="calendar-day">
+                    22
+                    <div class="calendar-event">Entrevista Radio Nacional</div>
+                </div>
+                <div class="calendar-day today">23</div>
+                <div class="calendar-day">24</div>
+                <div class="calendar-day">25</div>
+                
+                <div class="calendar-day">26</div>
+                <div class="calendar-day">27</div>
+                <div class="calendar-day">28</div>
+                <div class="calendar-day">29</div>
+                <div class="calendar-day">
+                    30
+                    <div class="calendar-event">Lanzamiento Nuevo Sencillo</div>
+                </div>
+                <div class="calendar-day">31</div>
+                <div class="calendar-day other-month">1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Próximos Eventos</h3>
+            <button class="btn btn-primary">
+                <i class="fas fa-plus"></i> Nuevo Evento
+            </button>
+        </div>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Evento</th>
+                        <th>Ubicación</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>15 Jun 2025</td>
+                        <td>Concierto Teatro Metropolitan</td>
+                        <td>Ciudad de México, MX</td>
+                        <td>Concierto</td>
+                        <td><span class="badge-pill badge-primary">Confirmado</span></td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>22 Jun 2025</td>
+                        <td>Entrevista Radio Nacional</td>
+                        <td>Online</td>
+                        <td>Prensa</td>
+                        <td><span class="badge-pill badge-primary">Confirmado</span></td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>30 Jun 2025</td>
+                        <td>Lanzamiento Nuevo Sencillo</td>
+                        <td>Todas las plataformas</td>
+                        <td>Lanzamiento</td>
+                        <td><span class="badge-pill badge-primary">Confirmado</span></td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15 Jul 2025</td>
+                        <td>Inicio Gira Nacional</td>
+                        <td>Guadalajara, MX</td>
+                        <td>Gira</td>
+                        <td><span class="badge-pill badge-warning">Pendiente</span></td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>28 Jul 2025</td>
+                        <td>Showcase para Prensa</td>
+                        <td>Ciudad de México, MX</td>
+                        <td>Promoción</td>
+                        <td><span class="badge-pill badge-secondary">Borrador</span></td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tour Management -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Gestión de Giras</h3>
+        </div>
+        <div class="tours-list">
+            <div class="tour-item">
+                <div class="tour-header">
+                    <h4>Gira Nacional 2025</h4>
+                    <div class="tour-status">
+                        <span class="badge-pill badge-warning">En planificación</span>
+                    </div>
+                </div>
+                <div class="tour-details">
+                    <div class="tour-info">
+                        <div class="tour-dates">
+                            <i class="fas fa-calendar-alt"></i> 15 Jul - 30 Ago 2025
+                        </div>
+                        <div class="tour-locations">
+                            <i class="fas fa-map-marker-alt"></i> 8 ciudades
+                        </div>
+                    </div>
+                    <div class="tour-progress">
+                        <div class="progress-label">
+                            <span>Progreso</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tour-cities">
+                    <div class="city-item">
+                        <div class="city-date">15 Jul</div>
+                        <div class="city-name">Guadalajara</div>
+                        <div class="city-venue">Teatro Diana</div>
+                        <div class="city-status"><span class="badge-pill badge-warning">Pendiente</span></div>
+                    </div>
+                    <div class="city-item">
+                        <div class="city-date">22 Jul</div>
+                        <div class="city-name">Monterrey</div>
+                        <div class="city-venue">Auditorio Banamex</div>
+                        <div class="city-status"><span class="badge-pill badge-warning">Pendiente</span></div>
+                    </div>
+                    <div class="city-item">
+                        <div class="city-date">29 Jul</div>
+                        <div class="city-name">Ciudad de México</div>
+                        <div class="city-venue">Auditorio Nacional</div>
+                        <div class="city-status"><span class="badge-pill badge-primary">Confirmado</span></div>
+                    </div>
+                    <div class="city-item">
+                        <div class="city-date">5 Ago</div>
+                        <div class="city-name">Puebla</div>
+                        <div class="city-venue">Auditorio Metropolitano</div>
+                        <div class="city-status"><span class="badge-pill badge-secondary">Borrador</span></div>
+                    </div>
+                </div>
+                <div class="tour-actions">
+                    <button class="btn btn-outline">
+                        <i class="fas fa-map-marked-alt"></i> Ver Mapa
+                    </button>
+                    <button class="btn btn-outline">
+                        <i class="fas fa-users"></i> Equipo
+                    </button>
+                    <button class="btn btn-outline">
+                        <i class="fas fa-file-invoice-dollar"></i> Presupuesto
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-edit"></i> Editar Gira
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Details -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Detalle de Evento</h3>
+        </div>
+        <div class="event-details">
+            <div class="event-header">
+                <div class="event-title">Concierto Teatro Metropolitan</div>
+                <div class="event-type">Concierto</div>
+            </div>
+            <div class="event-info-grid">
+                <div class="event-info-item">
+                    <div class="info-label"><i class="fas fa-calendar-alt"></i> Fecha</div>
+                    <div class="info-value">15 Jun 2025</div>
+                </div>
+                <div class="event-info-item">
+                    <div class="info-label"><i class="fas fa-clock"></i> Hora</div>
+                    <div class="info-value">20:00</div>
+                </div>
+                <div class="event-info-item">
+                    <div class="info-label"><i class="fas fa-map-marker-alt"></i> Ubicación</div>
+                    <div class="info-value">Teatro Metropolitan, Ciudad de México</div>
+                </div>
+                <div class="event-info-item">
+                    <div class="info-label"><i class="fas fa-users"></i> Capacidad</div>
+                    <div class="info-value">3,000 personas</div>
+                </div>
+                <div class="event-info-item">
+                    <div class="info-label"><i class="fas fa-ticket-alt"></i> Entradas</div>
+                    <div class="info-value">2,450 vendidas (82%)</div>
+                </div>
+                <div class="event-info-item">
+                    <div class="info-label"><i class="fas fa-dollar-sign"></i> Ingresos</div>
+                    <div class="info-value">$73,500</div>
+                </div>
+            </div>
+            <div class="event-tabs">
+                <div class="tabs">
+                    <div class="tab active">Detalles</div>
+                    <div class="tab">Equipo</div>
+                    <div class="tab">Logística</div>
+                    <div class="tab">Promoción</div>
+                </div>
+                <div class="tab-content active">
+                    <div class="event-description">
+                        <h4>Descripción</h4>
+                        <p>Concierto de presentación del nuevo álbum "Ecos del Silencio" en el Teatro Metropolitan de la Ciudad de México. Incluye set completo con invitados especiales y merchandising exclusivo.</p>
+                    </div>
+                    <div class="event-notes">
+                        <h4>Notas</h4>
+                        <ul>
+                            <li>Soundcheck programado para las 15:00</li>
+                            <li>Meet & Greet con 50 fans VIP antes del show</li>
+                            <li>Grabación de video en vivo para posterior lanzamiento</li>
+                            <li>Afterparty en Hotel Condesa DF</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="event-actions">
+                <button class="btn btn-outline">
+                    <i class="fas fa-file-export"></i> Exportar Detalles
+                </button>
+                <button class="btn btn-outline">
+                    <i class="fas fa-share-alt"></i> Compartir
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-edit"></i> Editar Evento
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtistRM 360 - Plataforma de Gestión para Artistas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+</head>
+<body class="dark-theme">
+    <div class="theme-toggle">
+        <button id="theme-switch">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="images/logo.png" alt="ArtistRM 360 Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Proyectos</a></li>
+                    <li><a href="#content"><i class="fas fa-file-alt"></i> Contenido</a></li>
+                    <li><a href="#analytics"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="#integrations"><i class="fas fa-plug"></i> Integraciones</a></li>
+                    <li><a href="#zeus"><i class="fas fa-robot"></i> Zeus IA</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <img src="images/user-avatar.png" alt="User Avatar" class="avatar">
+                <div class="user-info">
+                    <span class="user-name">Usuario</span>
+                    <span class="user-role">Administrador</span>
+                </div>
+                <div class="user-dropdown" id="user-dropdown">
+                    <div class="user-dropdown-item" id="profile-link">
+                        <i class="fas fa-user"></i>
+                        <span>Mi Perfil</span>
+                    </div>
+                    <div class="user-dropdown-item" id="settings-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </div>
+                    <div class="user-dropdown-item" id="logout-button">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="dashboard" class="active-section">
+                <h1>Dashboard</h1>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-music"></i></div>
+                        <div class="stat-info">
+                            <h3>Proyectos Activos</h3>
+                            <p class="stat-number">12</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-info">
+                            <h3>Artistas</h3>
+                            <p class="stat-number">24</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-file-audio"></i></div>
+                        <div class="stat-info">
+                            <h3>Contenido</h3>
+                            <p class="stat-number">156</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-chart-pie"></i></div>
+                        <div class="stat-info">
+                            <h3>Rendimiento</h3>
+                            <p class="stat-number">+18%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h3>Rendimiento por Plataforma</h3>
+                        <div class="platform-stats">
+                            <div class="platform">
+                                <img src="images/spotify-logo.png" alt="Spotify" class="platform-logo">
+                                <div class="platform-bar">
+                                    <div class="platform-progress" style="width: 75%;">75%</div>
+                                </div>
+                            </div>
+                            <div class="platform">
+                                <img src="images/youtube-logo.png" alt="YouTube" class="platform-logo">
+                                <div class="platform-bar">
+                                    <div class="platform-progress" style="width: 62%;">62%</div>
+                                </div>
+                            </div>
+                            <div class="platform">
+                                <img src="images/apple-music-logo.png" alt="Apple Music" class="platform-logo">
+                                <div class="platform-bar">
+                                    <div class="platform-progress" style="width: 48%;">48%</div>
+                                </div>
+                            </div>
+                            <div class="platform">
+                                <img src="images/tiktok-logo.png" alt="TikTok" class="platform-logo">
+                                <div class="platform-bar">
+                                    <div class="platform-progress" style="width: 89%;">89%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Actividad Reciente</h3>
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon"><i class="fas fa-upload"></i></div>
+                                <div class="activity-content">
+                                    <p>Nuevo contenido subido: "Álbum Verano 2025"</p>
+                                    <span class="activity-time">Hace 2 horas</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="activity-content">
+                                    <p>Pico de reproducciones en Spotify: +15K</p>
+                                    <span class="activity-time">Hace 5 horas</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon"><i class="fas fa-comment"></i></div>
+                                <div class="activity-content">
+                                    <p>Zeus IA: Análisis de sentimiento completado</p>
+                                    <span class="activity-time">Hace 1 día</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon"><i class="fas fa-calendar"></i></div>
+                                <div class="activity-content">
+                                    <p>Nuevo proyecto creado: "Gira Mundial 2026"</p>
+                                    <span class="activity-time">Hace 2 días</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="zeus" class="hidden-section">
+                <h1>Zeus - Asistente IA</h1>
+                <div class="zeus-container">
+                    <div class="zeus-interface">
+                        <div class="zeus-header">
+                            <div class="zeus-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="zeus-status">
+                                <h3>Zeus, multi agente de IA</h3>
+                                <span class="status-indicator online">Activo</span>
+                            </div>
+                        </div>
+                        <div class="zeus-chat">
+                            <div class="chat-message zeus-message">
+                                <div class="message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <p>Hola, soy Zeus, tu asistente de IA. ¿En qué puedo ayudarte hoy?</p>
+                                    <span class="message-time">Ahora</span>
+                                </div>
+                            </div>
+                            <div class="chat-message user-message">
+                                <div class="message-content">
+                                    <p>Necesito un análisis de rendimiento del último lanzamiento</p>
+                                    <span class="message-time">Ahora</span>
+                                </div>
+                                <div class="message-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="chat-message zeus-message">
+                                <div class="message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <p>Analizando datos del último lanzamiento "Álbum Verano 2025"...</p>
+                                    <span class="message-time">Ahora</span>
+                                </div>
+                            </div>
+                            <div class="chat-message zeus-message">
+                                <div class="message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <p>He detectado un incremento del 23% en reproducciones comparado con lanzamientos anteriores. Las plataformas con mejor rendimiento son TikTok (+89%) y Spotify (+75%). Recomiendo aumentar la promoción en Apple Music donde el rendimiento es menor (+48%).</p>
+                                    <span class="message-time">Ahora</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="zeus-input">
+                            <input type="text" placeholder="Escribe tu mensaje para Zeus...">
+                            <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+                            <button class="voice-button"><i class="fas fa-microphone"></i></button>
+                        </div>
+                    </div>
+                    <div class="zeus-capabilities">
+                        <h3>Capacidades de Zeus IA</h3>
+                        <div class="capability-cards">
+                            <div class="capability-card">
+                                <div class="capability-icon"><i class="fas fa-chart-line"></i></div>
+                                <h4>Análisis Predictivo</h4>
+                                <p>Predicciones basadas en datos históricos y tendencias actuales</p>
+                            </div>
+                            <div class="capability-card">
+                                <div class="capability-icon"><i class="fas fa-file-alt"></i></div>
+                                <h4>Procesamiento OCR</h4>
+                                <p>Extracción de texto de documentos e imágenes</p>
+                            </div>
+                            <div class="capability-card">
+                                <div class="capability-icon"><i class="fas fa-comments"></i></div>
+                                <h4>Análisis de Sentimiento</h4>
+                                <p>Evaluación de la percepción en redes sociales</p>
+                            </div>
+                            <div class="capability-card">
+                                <div class="capability-icon"><i class="fas fa-calendar-alt"></i></div>
+                                <h4>Planificación Inteligente</h4>
+                                <p>Optimización de calendarios y recursos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="hidden-section">
+                <h1>Proyectos</h1>
+                <div class="projects-container">
+                    <!-- Los proyectos se cargarán dinámicamente desde Firebase -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Álbum Verano 2025</h3>
+                            <span class="project-type">Album</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-status">
+                                <span class="status-label">Estado:</span>
+                                <span class="status-value in-progress">En progreso</span>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-label">
+                                    <span>Progreso</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                            <div class="project-details">
+                                <div class="project-detail">
+                                    <span class="detail-label">Fecha límite</span>
+                                    <span class="detail-value">15/08/2025</span>
+                                </div>
+                                <div class="project-detail">
+                                    <span class="detail-label">Colaboradores</span>
+                                    <span class="detail-value">8</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <button class="project-action"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="project-action primary"><i class="fas fa-eye"></i> Ver</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Gira Mundial 2026</h3>
+                            <span class="project-type">Tour</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-status">
+                                <span class="status-label">Estado:</span>
+                                <span class="status-value planning">Planificación</span>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-label">
+                                    <span>Progreso</span>
+                                    <span>30%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 30%;"></div>
+                                </div>
+                            </div>
+                            <div class="project-details">
+                                <div class="project-detail">
+                                    <span class="detail-label">Fecha límite</span>
+                                    <span class="detail-value">01/03/2026</span>
+                                </div>
+                                <div class="project-detail">
+                                    <span class="detail-label">Colaboradores</span>
+                                    <span class="detail-value">15</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <button class="project-action"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="project-action primary"><i class="fas fa-eye"></i> Ver</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Colaboración Internacional</h3>
+                            <span class="project-type">Single</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-status">
+                                <span class="status-label">Estado:</span>
+                                <span class="status-value completed">Completado</span>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-label">
+                                    <span>Progreso</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div class="project-details">
+                                <div class="project-detail">
+                                    <span class="detail-label">Fecha límite</span>
+                                    <span class="detail-value">10/04/2025</span>
+                                </div>
+                                <div class="project-detail">
+                                    <span class="detail-label">Colaboradores</span>
+                                    <span class="detail-value">5</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <button class="project-action"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="project-action primary"><i class="fas fa-eye"></i> Ver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="content" class="hidden-section">
+                <h1>Contenido</h1>
+                <div class="content-header">
+                    <div class="content-filters">
+                        <button class="filter-button active">Todos</button>
+                        <button class="filter-button">Audio</button>
+                        <button class="filter-button">Video</button>
+                        <button class="filter-button">Imagen</button>
+                    </div>
+                    <button class="upload-button" id="upload-button">
+                        <i class="fas fa-upload"></i> Subir Contenido
+                    </button>
+                </div>
+                <div class="content-grid">
+                    <!-- El contenido se cargará dinámicamente desde Firebase -->
+                    <div class="content-card">
+                        <div class="content-thumbnail">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">Atardecer</h3>
+                            <div class="content-meta">
+                                <span class="content-type">Audio</span>
+                                <span class="content-format">MP3</span>
+                            </div>
+                            <div class="content-stats">
+                                <span class="content-stat">
+                                    <i class="fas fa-clock"></i> 3:45
+                                </span>
+                                <span class="content-stat">
+                                    <i class="fas fa-play"></i> 1.2M
+                                </span>
+                            </div>
+                            <div class="content-actions">
+                                <button class="content-action">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="content-action">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="content-action primary">
+                                    <i class="fas fa-play"></i> Reproducir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="content-thumbnail">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">Detrás de Cámaras - Sesión de Estudio</h3>
+                            <div class="content-meta">
+                                <span class="content-type">Video</span>
+                                <span class="content-format">MP4</span>
+                            </div>
+                            <div class="content-stats">
+                                <span class="content-stat">
+                                    <i class="fas fa-clock"></i> 12:30
+                                </span>
+                                <span class="content-stat">
+                                    <i class="fas fa-eye"></i> 450K
+                                </span>
+                            </div>
+                            <div class="content-actions">
+                                <button class="content-action">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="content-action">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="content-action primary">
+                                    <i class="fas fa-play"></i> Reproducir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="content-thumbnail">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="content-info">
+                            <h3 class="content-title">Entrevista Exclusiva</h3>
+                            <div class="content-meta">
+                                <span class="content-type">Audio</span>
+                                <span class="content-format">MP3</span>
+                            </div>
+                            <div class="content-stats">
+                                <span class="content-stat">
+                                    <i class="fas fa-clock"></i> 25:18
+                                </span>
+                                <span class="content-stat">
+                                    <i class="fas fa-play"></i> 320K
+                                </span>
+                            </div>
+                            <div class="content-actions">
+                                <button class="content-action">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="content-action">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="content-action primary">
+                                    <i class="fas fa-play"></i> Reproducir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="analytics" class="hidden-section">
+                <h1>Analytics</h1>
+                <div class="analytics-overview">
+                    <div class="analytics-card">
+                        <span class="analytics-title">Reproducciones Totales</span>
+                        <span class="analytics-value">2.5M</span>
+                        <span class="analytics-change positive">
+                            <i class="fas fa-arrow-up"></i> 23%
+                        </span>
+                    </div>
+                    <div class="analytics-card">
+                        <span class="analytics-title">Visualizaciones</span>
+                        <span class="analytics-value">1.8M</span>
+                        <span class="analytics-change positive">
+                            <i class="fas fa-arrow-up"></i> 15%
+                        </span>
+                    </div>
+                    <div class="analytics-card">
+                        <span class="analytics-title">Seguidores</span>
+                        <span class="analytics-value">850K</span>
+                        <span class="analytics-change positive">
+                            <i class="fas fa-arrow-up"></i> 8%
+                        </span>
+                    </div>
+                    <div class="analytics-card">
+                        <span class="analytics-title">Ingresos</span>
+                        <span class="analytics-value">$125K</span>
+                        <span class="analytics-change positive">
+                            <i class="fas fa-arrow-up"></i> 12%
+                        </span>
+                    </div>
+                </div>
+                <div class="analytics-charts">
+                    <div class="chart-wrapper">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Rendimiento por Plataforma</h3>
+                            <div class="chart-period">
+                                <button class="period-button">7D</button>
+                                <button class="period-button active">30D</button>
+                                <button class="period-button">90D</button>
+                                <button class="period-button">1A</button>
+                            </div>
+                        </div>
+                        <div class="chart-canvas" id="platform-chart">
+                            <!-- Aquí se renderizará el gráfico con JavaScript -->
+                            <div class="platform-stats">
+                                <div class="platform">
+                                    <img src="images/spotify-logo.png" alt="Spotify" class="platform-logo">
+                                    <div class="platform-bar">
+                                        <div class="platform-progress" style="width: 75%;">75%</div>
+                                    </div>
+                                </div>
+                                <div class="platform">
+                                    <img src="images/youtube-logo.png" alt="YouTube" class="platform-logo">
+                                    <div class="platform-bar">
+                                        <div class="platform-progress" style="width: 62%;">62%</div>
+                                    </div>
+                                </div>
+                                <div class="platform">
+                                    <img src="images/apple-music-logo.png" alt="Apple Music" class="platform-logo">
+                                    <div class="platform-bar">
+                                        <div class="platform-progress" style="width: 48%;">48%</div>
+                                    </div>
+                                </div>
+                                <div class="platform">
+                                    <img src="images/tiktok-logo.png" alt="TikTok" class="platform-logo">
+                                    <div class="platform-bar">
+                                        <div class="platform-progress" style="width: 89%;">89%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Demografía de Audiencia</h3>
+                            <div class="chart-period">
+                                <button class="period-button">7D</button>
+                                <button class="period-button active">30D</button>
+                                <button class="period-button">90D</button>
+                                <button class="period-button">1A</button>
+                            </div>
+                        </div>
+                        <div class="chart-canvas" id="demographics-chart">
+                            <!-- Aquí se renderizará el gráfico con JavaScript -->
+                            <div style="text-align: center; padding: 50px 0;">
+                                <i class="fas fa-chart-pie" style="font-size: 100px; color: var(--accent-dark); opacity: 0.5;"></i>
+                                <p style="margin-top: 20px;">Datos demográficos disponibles en la versión completa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="integrations" class="hidden-section">
+                <h1>Integraciones</h1>
+                <div class="integrations-container">
+                    <div class="integration-category">
+                        <h3>Plataformas de Streaming</h3>
+                        <div class="integration-cards">
+                            <div class="integration-card connected">
+                                <img src="images/spotify-logo.png" alt="Spotify" class="integration-logo">
+                                <h4>Spotify</h4>
+                                <span class="integration-status">Conectado</span>
+                                <button class="integration-action">Configurar</button>
+                            </div>
+                            <div class="integration-card connected">
+                                <img src="images/youtube-logo.png" alt="YouTube" class="integration-logo">
+                                <h4>YouTube</h4>
+                                <span class="integration-status">Conectado</span>
+                                <button class="integration-action">Configurar</button>
+                            </div>
+                            <div class="integration-card connected">
+                                <img src="images/apple-music-logo.png" alt="Apple Music" class="integration-logo">
+                                <h4>Apple Music</h4>
+                                <span class="integration-status">Conectado</span>
+                                <button class="integration-action">Configurar</button>
+                            </div>
+                            <div class="integration-card">
+                                <img src="images/tidal-logo.png" alt="Tidal" class="integration-logo">
+                                <h4>Tidal</h4>
+                                <span class="integration-status">No conectado</span>
+                                <button class="integration-action primary">Conectar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="integration-category">
+                        <h3>Redes Sociales</h3>
+                        <div class="integration-cards">
+                            <div class="integration-card connected">
+                                <img src="images/instagram-logo.png" alt="Instagram" class="integration-logo">
+                                <h4>Instagram</h4>
+                                <span class="integration-status">Conectado</span>
+                                <button class="integration-action">Configurar</button>
+                            </div>
+                            <div class="integration-card connected">
+                                <img src="images/tiktok-logo.png" alt="TikTok" class="integration-logo">
+                                <h4>TikTok</h4>
+                                <span class="integration-status">Conectado</span>
+                                <button class="integration-action">Configurar</button>
+                            </div>
+                            <div class="integration-card">
+                                <img src="images/twitter-logo.png" alt="Twitter" class="integration-logo">
+                                <h4>Twitter</h4>
+                                <span class="integration-status">No conectado</span>
+                                <button class="integration-action primary">Conectar</button>
+                            </div>
+                            <div class="integration-card">
+                                <img src="images/facebook-logo.png" alt="Facebook" class="integration-logo">
+                                <h4>Facebook</h4>
+                                <span class="integration-status">No conectado</span>
+                                <button class="integration-action primary">Conectar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="integration-category">
+                        <h3>Servicios Avanzados</h3>
+                        <div class="integration-cards">
+                            <div class="integration-card connected">
+                                <img src="images/manus-logo.png" alt="Manus.im" class="integration-logo">
+                                <h4>Manus.im</h4>
+                                <span class="integration-status">Conectado</span>
+                                <button class="integration-action">Configurar</button>
+                            </div>
+                            <div class="integration-card connected">
+                                <img src="images/gemini-logo.png" alt="Gemini" class="integration-logo">
+                                <h4>Gemini</h4>
+                                <span class="integration-status">Conectado</span>
+                                <button class="integration-action">Configurar</button>
+                            </div>
+                            <div class="integration-card">
+                                <img src="images/ocr-logo.png" alt="OCR Service" class="integration-logo">
+                                <h4>OCR Service</h4>
+                                <span class="integration-status">No conectado</span>
+                                <button class="integration-action primary">Conectar</button>
+                            </div>
+                            <div class="integration-card">
+                                <img src="images/analytics-logo.png" alt="Analytics Pro" class="integration-logo">
+                                <h4>Analytics Pro</h4>
+                                <span class="integration-status">No conectado</span>
+                                <button class="integration-action primary">Conectar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de Subida de Contenido -->
+    <div class="modal" id="upload-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Subir Nuevo Contenido</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="upload-form" id="file-upload-form">
+                    <div class="form-group">
+                        <label class="form-label">Título</label>
+                        <input type="text" class="form-input" placeholder="Ingresa un título para el contenido">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Descripción</label>
+                        <textarea class="form-input" rows="3" placeholder="Describe el contenido"></textarea>
+                    </div>
+                    <div class="file-input-container">
+                        <div class="file-drop-area" id="file-drop-area">
+                            <i class="fas fa-cloud-upload-alt drop-icon"></i>
+                            <p class="drop-message">Arrastra archivos aquí o haz clic para seleccionar</p>
+                            <p>Formatos soportados: MP3, MP4, JPG, PNG, PDF</p>
+                            <input type="file" class="file-input" id="file-input">
+                        </div>
+                        <div class="file-info" id="file-info" style="display: none;">
+                            <i class="fas fa-file file-icon"></i>
+                            <div class="file-details">
+                                <p class="file-name" id="file-name">archivo.mp3</p>
+                                <p class="file-meta" id="file-meta">Audio - 5.2 MB</p>
+                            </div>
+                            <button type="button" class="file-remove" id="file-remove">&times;</button>
+                        </div>
+                        <progress class="upload-progress" id="upload-progress" value="0" max="100" style="display: none;"></progress>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-button" id="cancel-upload">Cancelar</button>
+                <button class="modal-button primary" id="confirm-upload">Subir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Form (hidden by default, shown when user is not authenticated) -->
+    <div class="login-container" id="login-container" style="display: none;">
+        <form class="login-form" id="login-form">
+            <div class="login-logo">
+                <img src="images/logo.png" alt="ArtistRM 360 Logo">
+            </div>
+            <h2 class="login-title">Iniciar Sesión</h2>
+            <div class="login-input-group">
+                <label class="login-label" for="login-email">Email</label>
+                <input type="email" id="login-email" class="login-input" placeholder="tu@email.com" required>
+            </div>
+            <div class="login-input-group">
+                <label class="login-label" for="login-password">Contraseña</label>
+                <input type="password" id="login-password" class="login-input" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="login-button">Iniciar Sesión</button>
+            <div class="login-options">
+                <a href="#" class="login-option">¿Olvidaste tu contraseña?</a>
+                <a href="#" class="login-option">Crear cuenta</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

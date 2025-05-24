@@ -1,0 +1,42 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /users/{userId}/{allPaths=**} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    match /artists/{artistId}/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && (
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin) ||
+        exists(/databases/$(database)/documents/artists/$(artistId)/managers/$(request.auth.uid))
+      );
+    }
+    
+    match /projects/{projectId}/{allPaths=**} {
+      allow read: if request.auth != null && (
+        exists(/databases/$(database)/documents/projects/$(projectId)/members/$(request.auth.uid)) ||
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin)
+      );
+      allow write: if request.auth != null && (
+        exists(/databases/$(database)/documents/projects/$(projectId)/members/$(request.auth.uid)) ||
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin)
+      );
+    }
+    
+    match /content/{contentId}/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && (
+        resource.metadata.ownerId == request.auth.uid ||
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin)
+      );
+    }
+    
+    match /public/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)/permissions/admin);
+    }
+  }
+}

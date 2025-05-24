@@ -1,0 +1,107 @@
+<!-- Analytics Section -->
+<section id="analytics-section" class="section">
+    <div class="section-header">
+        <h2>Analytics</h2>
+        <p>Analiza el rendimiento de tu música y contenido en todas las plataformas</p>
+    </div>
+
+    <!-- Analytics Overview -->
+    <div class="stats-grid">
+        <div class="stat-card blue">
+            <div class="stat-info">
+                <h3>Reproducciones Totales</h3>
+                <div class="stat-value">1.2M</div>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-play"></i>
+            </div>
+        </div>
+        <div class="stat-card purple">
+            <div class="stat-info">
+                <h3>Oyentes Mensuales</h3>
+                <div class="stat-value">245K</div>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-headphones"></i>
+            </div>
+        </div>
+        <div class="stat-card pink">
+            <div class="stat-info">
+                <h3>Seguidores</h3>
+                <div class="stat-value">89.5K</div>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+        <div class="stat-card green">
+            <div class="stat-info">
+                <h3>Ingresos Mensuales</h3>
+                <div class="stat-value">$4,250</div>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-dollar-sign"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Platform Performance -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Rendimiento por Plataforma</h3>
+            <div class="chart-filters">
+                <button class="btn btn-outline active">7 días</button>
+                <button class="btn btn-outline">30 días</button>
+                <button class="btn btn-outline">90 días</button>
+                <button class="btn btn-outline">1 año</button>
+            </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="platforms-chart"></canvas>
+        </div>
+    </div>
+
+    <!-- Content Performance -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Rendimiento de Contenido</h3>
+            <select class="form-select">
+                <option value="all">Todas las canciones</option>
+                <option value="album">Álbum: Ecos del Silencio</option>
+                <option value="single">Sencillo: Amanecer</option>
+            </select>
+        </div>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Reproducciones</th>
+                        <th>Oyentes</th>
+                        <th>Guardados</th>
+                        <th>Compartidos</th>
+                        <th>Ingresos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Amanecer</td>
+                        <td>450,230</td>
+                        <td>125,450</td>
+                        <td>32,450</td>
+                        <td>5,230</td>
+                        <td>$1,250</td>
+                    </tr>
+                    <tr>
+                        <td>Ecos del Silencio - Track 01</td>
+                        <td>320,120</td>
+                        <td>98,750</td>
+                        <td>24,320</td>
+                        <td>3,120</td>
+                        <td>$890</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

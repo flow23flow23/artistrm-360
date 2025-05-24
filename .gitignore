@@ -1,54 +1,102 @@
-# Archivos del sistema
-.DS_Store
-Thumbs.db
-
-# Dependencias
+# Dependencies
 /node_modules
+/.pnp
+.pnp.js
 /vendor
 
-# Archivos de entorno
+# Testing
+/coverage
+.nyc_output
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+/dist
+
+# Misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# Environment files
 .env
-.env.local
+.env*.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Archivos de compilación
-/build
-/dist
-/out
+# Vercel
+.vercel
 
-# Archivos de registro
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-*.log
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
 
-# Archivos de IDE y editores
-/.idea
-/.vscode
-*.sublime-project
-*.sublime-workspace
-
-# Archivos temporales
-*.tmp
-*.temp
-*.swp
-*.swo
-
-# Archivos de caché
-.cache
-.parcel-cache
-
-# Archivos de Firebase
+# Firebase
 .firebase/
 firebase-debug.log
 firestore-debug.log
 ui-debug.log
+firebase-export-*
 
-# Archivos de configuración local
-firebase.json
-.firebaserc
+# Functions
+functions/lib/
+functions/node_modules/
+functions/.eslintrc.js
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+.temp
+.tmp
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Cache
+.cache
+.parcel-cache
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# n8n
+n8n-workflows/credentials/
+n8n-workflows/.n8n/
 
 # Archivos de respaldo
 *.bak

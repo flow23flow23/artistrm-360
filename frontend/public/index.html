@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtistRM 360 - Integral</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <div class="app-container" id="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">ArtistRM 360</div>
+                <button class="sidebar-close" id="sidebar-close"><i class="fas fa-times"></i></button>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <!-- Navigation links will be loaded here -->
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info" id="user-info">
+                    <!-- User info will be loaded here -->
+                </div>
+                <button class="logout-btn" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Buscar...">
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+                    <button id="notifications-toggle">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge" id="notifications-badge">0</span>
+                    </button>
+                    <button id="zeus-toggle" class="zeus-toggle"><i class="fas fa-robot"></i></button>
+                    <div class="user-avatar" id="user-avatar-top">U</div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area" id="content-area">
+                <!-- Sections will be loaded here -->
+                <section id="loading-section" class="section active">
+                    <h2>Cargando...</h2>
+                </section>
+            </div>
+        </main>
+
+        <!-- Zeus AI Modal -->
+        <div class="zeus-modal" id="zeus-modal">
+            <div class="zeus-header">
+                <h3>Asistente Zeus IA</h3>
+                <button id="zeus-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="zeus-content" id="zeus-content">
+                <!-- Chat interface -->
+            </div>
+            <div class="zeus-input">
+                <input type="text" id="zeus-input-text" placeholder="Escribe tu comando...">
+                <button id="zeus-send"><i class="fas fa-paper-plane"></i></button>
+                <button id="zeus-voice"><i class="fas fa-microphone"></i></button>
+            </div>
+        </div>
+
+        <!-- Notifications Panel -->
+        <div class="notifications-panel" id="notifications-panel">
+             <div class="panel-header"><h3>Notificaciones</h3><button id="notifications-close"><i class="fas fa-times"></i></button></div>
+             <div class="panel-content" id="notifications-content">
+                 <!-- Notifications will be loaded here -->
+                 <p>No hay notificaciones nuevas.</p>
+             </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-functions-compat.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="scripts/firebase-config.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/app.js"></script>
+    <!-- Module scripts will be loaded dynamically -->
+</body>
+</html>

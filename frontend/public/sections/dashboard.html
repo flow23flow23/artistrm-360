@@ -1,0 +1,168 @@
+<!-- Dashboard Section -->
+<section id="dashboard-section" class="section">
+    <div class="section-header">
+        <h2>Dashboard Principal</h2>
+        <p>Resumen de tu actividad y métricas clave</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-card purple">
+            <div class="stat-info">
+                <h3>Proyectos Activos</h3>
+                <div class="stat-value" id="projects-count">0</div>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+        </div>
+        <div class="stat-card pink">
+            <div class="stat-info">
+                <h3>Contenido Publicado</h3>
+                <div class="stat-value" id="content-count">0</div>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-photo-video"></i>
+            </div>
+        </div>
+        <div class="stat-card green">
+            <div class="stat-info">
+                <h3>Visualizaciones</h3>
+                <div class="stat-value" id="views-count">0</div>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-eye"></i>
+            </div>
+        </div>
+        <div class="stat-card" style="background-color: #a855f7; color: white;">
+            <div class="stat-info">
+                <h3>Engagement Rate</h3>
+                <div class="stat-value" id="engagement-rate">0%</div>
+            </div>
+            <div class="stat-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Grid -->
+    <div class="dashboard-grid">
+        <div class="dashboard-card card">
+            <div class="card-header">
+                <h3>Actividad Reciente</h3>
+                <button class="btn btn-text">Ver todo</button>
+            </div>
+            <div class="activity-list" id="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-music"></i></div>
+                    <div class="activity-content">
+                        <div class="activity-title">Nuevo álbum creado</div>
+                        <div class="activity-time">Hace 2 horas</div>
+                        <div class="activity-description">"Ecos del Silencio" - 12 pistas</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-upload"></i></div>
+                    <div class="activity-content">
+                        <div class="activity-title">Contenido subido</div>
+                        <div class="activity-time">Hace 5 horas</div>
+                        <div class="activity-description">3 fotos añadidas a la galería</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="activity-content">
+                        <div class="activity-title">Evento programado</div>
+                        <div class="activity-time">Ayer</div>
+                        <div class="activity-description">Concierto en Teatro Metropolitan - 15 Jun</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-file-contract"></i></div>
+                    <div class="activity-content">
+                        <div class="activity-title">Contrato firmado</div>
+                        <div class="activity-time">Hace 2 días</div>
+                        <div class="activity-description">Colaboración con Sony Music</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-card card">
+            <div class="card-header">
+                <h3>Próximos Eventos</h3>
+                <button class="btn btn-text">Ver calendario</button>
+            </div>
+            <div class="events-list" id="events-list">
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-day">15</div>
+                        <div class="event-month">JUN</div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Concierto Teatro Metropolitan</div>
+                        <div class="event-location"><i class="fas fa-map-marker-alt"></i> Ciudad de México</div>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-day">22</div>
+                        <div class="event-month">JUN</div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Entrevista Radio Nacional</div>
+                        <div class="event-location"><i class="fas fa-broadcast-tower"></i> Online</div>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-day">30</div>
+                        <div class="event-month">JUN</div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Lanzamiento Nuevo Sencillo</div>
+                        <div class="event-location"><i class="fas fa-music"></i> Todas las plataformas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analytics Overview -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Rendimiento en Plataformas</h3>
+            <div class="chart-filters">
+                <button class="btn btn-outline active">7 días</button>
+                <button class="btn btn-outline">30 días</button>
+                <button class="btn btn-outline">90 días</button>
+            </div>
+        </div>
+        <div class="chart-container" id="platforms-chart">
+            <!-- Chart will be rendered here -->
+            <canvas id="analytics-chart"></canvas>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <h3>Acciones Rápidas</h3>
+        <div class="actions-grid">
+            <button class="action-card">
+                <div class="action-icon"><i class="fas fa-plus"></i></div>
+                <div class="action-text">Nuevo Proyecto</div>
+            </button>
+            <button class="action-card">
+                <div class="action-icon"><i class="fas fa-upload"></i></div>
+                <div class="action-text">Subir Contenido</div>
+            </button>
+            <button class="action-card">
+                <div class="action-icon"><i class="fas fa-calendar-plus"></i></div>
+                <div class="action-text">Crear Evento</div>
+            </button>
+            <button class="action-card">
+                <div class="action-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                <div class="action-text">Registrar Ingreso</div>
+            </button>
+        </div>
+    </div>
+</section>

@@ -1,107 +1,236 @@
-# ArtistRM 360 - Plataforma Integral para Gestión de Artistas
+# ArtistRM 360 - Plataforma SaaS para Gestión de Carreras Artísticas
 
-![ArtistRM 360 Logo](assets/images/logo.png)
+![ArtistRM 360](https://img.shields.io/badge/ArtistRM-360-blue)
+![Version](https://img.shields.io/badge/version-1.0.0-green)
+![Status](https://img.shields.io/badge/status-beta-orange)
 
-## Descripción
+ArtistRM 360 es una plataforma SaaS integral diseñada para artistas y managers en la industria musical, centralizando todas las herramientas necesarias para gestionar carreras artísticas de manera eficiente y profesional.
 
-ArtistRM 360 es una plataforma SaaS (Software as a Service) integral diseñada específicamente para la gestión completa de artistas musicales. Centraliza todas las operaciones críticas del negocio musical en una única interfaz intuitiva y potente, permitiendo a los artistas y sus equipos gestionar proyectos, contenido, finanzas, eventos, contratos y relaciones con fans desde cualquier dispositivo.
+## 🌟 Características Principales
 
-## Características Principales
+- **Dashboard Interactivo**: Métricas clave y actividad reciente
+- **Gestión de Proyectos**: Álbumes, sencillos, colaboraciones y giras
+- **Biblioteca de Contenido**: Organización y gestión de assets multimedia
+- **Finanzas**: Seguimiento de ingresos, gastos y proyecciones
+- **Analytics**: Análisis de rendimiento en plataformas y redes sociales
+- **Eventos**: Planificación y gestión de giras y presentaciones
+- **Zeus IA**: Asistente virtual para automatización y análisis predictivo
+- **Integraciones**: Conexión con plataformas de streaming, redes sociales y servicios de distribución
 
-- **Dashboard Interactivo**: Visualización de métricas clave, actividad reciente y próximos eventos
-- **Gestión de Proyectos**: Administración de álbumes, sencillos, colaboraciones y lanzamientos
-- **Biblioteca de Contenido**: Organización centralizada de audio, video, imágenes y documentos
-- **Analytics Avanzados**: Análisis detallado de rendimiento en plataformas digitales y redes sociales
-- **Gestión Financiera**: Seguimiento de ingresos, gastos, proyecciones y reportes financieros
-- **Planificación de Eventos**: Organización de giras, conciertos y apariciones mediáticas
-- **Gestión de Contratos**: Seguimiento y administración de acuerdos legales y licencias
-- **CRM de Fans**: Gestión de relaciones con seguidores y campañas de engagement
-- **Asistente Zeus IA**: Asistente virtual inteligente para automatización y análisis predictivo
+## 🛠️ Stack Tecnológico
 
-## Tecnologías Utilizadas
-
-- **Frontend**: HTML5, CSS3, JavaScript moderno
+- **Frontend**: Next.js, TypeScript, Tailwind CSS
 - **Backend**: Firebase (Authentication, Firestore, Storage, Functions)
-- **Integraciones**: APIs de Spotify, YouTube, Instagram, TikTok, y más
-- **Inteligencia Artificial**: Zeus IA para asistencia y automatización
-- **Análisis de Datos**: Visualizaciones avanzadas y reportes personalizados
+- **State Management**: Zustand, React Query
+- **UI Components**: Custom components with Framer Motion animations
+- **Charts**: Chart.js with React Chart.js 2
+- **AI**: Google Gemini Pro (for Zeus AI)
+- **Integraciones**: n8n para automatización de flujos de trabajo
 
-## Estructura del Proyecto
+## 📋 Requisitos Previos
+
+- Node.js 18+ y npm 9+
+- Firebase CLI (`npm install -g firebase-tools`)
+- Git
+- Un proyecto Firebase (crear uno en [Firebase Console](https://console.firebase.google.com))
+
+## 🚀 Primeros Pasos
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/flow23flow23/artistrm-360.git
+cd artistrm-360
+```
+
+### 2. Instalar dependencias
+
+```bash
+# Instalar dependencias del frontend
+npm install
+# Instalar dependencias de Cloud Functions
+cd functions
+npm install
+cd ..
+```
+
+### 3. Configurar variables de entorno
+
+Copia el archivo de entorno de ejemplo y completa con tus credenciales de Firebase y APIs:
+
+```bash
+cp .env.example .env.local
+```
+
+Edita `.env.local` con tus valores:
+
+```env
+# Configuración de Firebase
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
+# Desarrollo
+NEXT_PUBLIC_USE_FIREBASE_EMULATORS=true
+# APIs Externas
+GEMINI_API_KEY=your_gemini_api_key
+SPOTIFY_CLIENT_ID=your_spotify_client_id
+# ... etc
+```
+
+### 4. Configuración de Firebase
+
+Inicia sesión en Firebase y selecciona tu proyecto:
+
+```bash
+firebase login
+firebase use --add
+```
+
+Inicializa los servicios de Firebase (si no lo has hecho ya):
+
+```bash
+firebase init
+```
+
+### 5. Iniciar servidores de desarrollo
+
+```bash
+# Iniciar Next.js y emuladores de Firebase
+npm run dev:all
+# O iniciarlos por separado:
+# Terminal 1: Iniciar emuladores de Firebase
+npm run firebase:emulators
+# Terminal 2: Iniciar servidor de desarrollo Next.js
+npm run dev
+```
+
+La aplicación estará disponible en:
+- Frontend: http://localhost:3000
+- UI de Emuladores Firebase: http://localhost:4000
+
+## 📁 Estructura del Proyecto
 
 ```
 artistrm-360/
-├── assets/             # Recursos multimedia
-│   ├── images/         # Imágenes e iconos
-│   └── fonts/          # Tipografías
-├── css/                # Estilos
-│   ├── main.css        # Estilos principales
-│   └── responsive.css  # Estilos responsivos
-├── js/                 # Scripts
-│   ├── app.js          # Lógica principal
-│   └── validation.js   # Validación y experiencia de usuario
-├── pages/              # Módulos HTML
-│   ├── dashboard.html  # Dashboard principal
-│   ├── projects.html   # Gestión de proyectos
-│   ├── content.html    # Biblioteca de contenido
-│   └── ...             # Otros módulos
-├── index.html          # Punto de entrada principal
-└── README.md           # Documentación
+├── src/
+│   ├── app/              # Páginas con Next.js app router
+│   ├── components/       # Componentes React
+│   ├── context/          # Contextos React (auth, theme)
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Bibliotecas y utilidades
+│   ├── services/         # Servicios API y Firebase
+│   ├── styles/           # Estilos globales y Tailwind
+│   ├── types/            # Definiciones de tipos TypeScript
+│   └── utils/            # Funciones auxiliares
+├── frontend/            # Componentes y lógica específica del frontend
+├── backend/             # Servicios y lógica de backend
+├── functions/           # Firebase Cloud Functions
+├── firebase-deploy/     # Configuración para despliegue en Firebase
+├── public/              # Assets estáticos
+├── firebase.json        # Configuración de Firebase
+├── firestore.rules      # Reglas de seguridad de Firestore
+├── storage.rules        # Reglas de seguridad de Storage
+└── package.json         # Dependencias del proyecto
 ```
 
-## Instalación y Despliegue
+## 🔧 Desarrollo
 
-### Requisitos Previos
+### Ejecutar pruebas
 
-- Cuenta en Firebase
-- Node.js y npm (para desarrollo)
-- Firebase CLI (para despliegue)
+```bash
+# Ejecutar pruebas unitarias
+npm test
+# Ejecutar pruebas en modo watch
+npm run test:watch
+# Generar informe de cobertura
+npm run test:coverage
+```
 
-### Configuración Local
+### Linting y formateo
 
-1. Clonar el repositorio:
-   ```
-   git clone https://github.com/yourusername/artistrm-360.git
-   cd artistrm-360
-   ```
+```bash
+# Ejecutar ESLint
+npm run lint
+# Formatear código con Prettier
+npm run format
+# Verificación de tipos
+npm run type-check
+```
 
-2. Configurar Firebase:
-   - Crear un proyecto en Firebase Console
-   - Actualizar la configuración en `js/firebase-config.js`
-   - Habilitar Authentication, Firestore y Storage
+### Compilar para producción
 
-3. Desplegar en Firebase:
-   ```
-   firebase login
-   firebase init
-   firebase deploy
-   ```
+```bash
+# Compilar la aplicación
+npm run build
+# Iniciar servidor de producción localmente
+npm run start
+```
 
-## Uso
+## 🚀 Despliegue
 
-La plataforma está diseñada para ser intuitiva y fácil de usar. Después de iniciar sesión, los usuarios son dirigidos al Dashboard principal donde pueden acceder a todos los módulos desde la barra lateral de navegación.
+### Desplegar en Firebase Hosting
 
-El asistente Zeus IA está disponible en todo momento a través del botón flotante, proporcionando ayuda contextual y automatización de tareas.
+```bash
+# Compilar y desplegar todo
+firebase deploy
+# Desplegar solo hosting
+firebase deploy --only hosting
+# Desplegar solo functions
+firebase deploy --only functions
+# Desplegar solo reglas
+firebase deploy --only firestore:rules,storage:rules
+```
 
-## Contribución
+## 🔐 Seguridad
 
-Las contribuciones son bienvenidas. Para contribuir:
+- Todas las rutas API están protegidas con Firebase Authentication
+- Firestore y Storage tienen reglas de seguridad configuradas
+- Se utilizan variables de entorno para datos sensibles
+- CORS está configurado adecuadamente
+- Validación de entrada en todos los formularios
 
-1. Haz un Fork del proyecto
-2. Crea una rama para tu característica (`git checkout -b feature/amazing-feature`)
-3. Haz commit de tus cambios (`git commit -m 'Add some amazing feature'`)
-4. Push a la rama (`git push origin feature/amazing-feature`)
+## 📚 Estado de Implementación de Características
+
+- ✅ Autenticación (Email/Password, Google)
+- ✅ Dashboard con estadísticas
+- ✅ UI básica de gestión de proyectos
+- ✅ UI de biblioteca de contenido
+- ⚠️ Gestión financiera (solo UI)
+- ⚠️ Calendario de eventos (solo UI)
+- ⚠️ Dashboard de analytics (datos de prueba)
+- 🚧 Asistente Zeus IA (planificado)
+- 🚧 Integraciones externas (planificado)
+- 🚧 Colaboración en equipo (planificado)
+
+Leyenda: ✅ Completo | ⚠️ Parcial | 🚧 En Progreso | ❌ No Iniciado
+
+## 🤝 Contribuir
+
+1. Haz un fork del repositorio
+2. Crea tu rama de características (`git checkout -b feature/caracteristica-increible`)
+3. Haz commit de tus cambios (`git commit -m 'Añadir alguna característica increíble'`)
+4. Haz push a la rama (`git push origin feature/caracteristica-increible`)
 5. Abre un Pull Request
 
-## Licencia
+## 📝 Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
+Este proyecto es software propietario. Todos los derechos reservados.
 
-## Contacto
+## 🆘 Soporte
 
-Para más información, contactar a:
-- Email: info@artistrm.com
-- Web: https://artistrm.com
+Para soporte, envía un email a support@artistrm360.com o únete a nuestro canal de Slack.
+
+## 🙏 Agradecimientos
+
+- Equipo de Firebase por la excelente infraestructura backend
+- Equipo de Next.js por el increíble framework React
+- Tailwind CSS por el framework CSS utility-first
+- Todos nuestros beta testers y early adopters
 
 ---
 
-Desarrollado con ❤️ para artistas por el equipo de ArtistRM 360
+Construido con ❤️ por el Equipo ArtistRM

@@ -1,0 +1,57 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    function hasValidFileType() {
+      return request.resource.contentType.matches('image/.*') ||
+             request.resource.contentType.matches('audio/.*') ||
+             request.resource.contentType.matches('video/.*') ||
+             request.resource.contentType.matches('application/pdf') ||
+             request.resource.contentType.matches('application/vnd.*') ||
+             request.resource.contentType.matches('text/.*');
+    }
+    
+    function isUnderSizeLimit() {
+      return request.resource.size < 100 * 1024 * 1024; // 100MB limit
+    }
+    
+    // User profile images
+    match /users/{userId}/profile/{fileName} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId) && hasValidFileType() && isUnderSizeLimit();
+    }
+    
+    // Project files
+    match /projects/{projectId}/{allPaths=**} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && hasValidFileType() && isUnderSizeLimit();
+    }
+    
+    // Content library
+    match /content/{userId}/{allPaths=**} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId) && hasValidFileType() && isUnderSizeLimit();
+    }
+    
+    // Temporary uploads (for processing)
+    match /temp/{userId}/{fileName} {
+      allow read: if isOwner(userId);
+      allow write: if isOwner(userId) && hasValidFileType() && isUnderSizeLimit();
+      // Files in temp should be deleted after processing
+    }
+    
+    // Public assets (logos, etc.)
+    match /public/{allPaths=**} {
+      allow read: if true;
+      allow write: if false; // Only admin via console
+    }
+  }
+}

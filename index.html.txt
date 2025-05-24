@@ -1,0 +1,1 @@
+Set-Content -Path C:\Users\x\out\index.html -Value "<html><head><title>ArtistRM</title></head><body><h1>ArtistRM - Plataforma en construcción</h1></body></html>"

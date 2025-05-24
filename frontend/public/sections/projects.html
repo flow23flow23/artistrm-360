@@ -1,0 +1,270 @@
+<!-- Projects Section -->
+<section id="projects-section" class="section">
+    <div class="section-header">
+        <h2>Gestión de Proyectos</h2>
+        <p>Administra tus álbumes, sencillos, giras y colaboraciones</p>
+    </div>
+
+    <!-- Projects Controls -->
+    <div class="controls-bar">
+        <div class="search-filter">
+            <input type="text" class="form-control" placeholder="Buscar proyecto...">
+        </div>
+        <div class="filter-options">
+            <select class="form-select">
+                <option value="all">Todos los tipos</option>
+                <option value="album">Álbumes</option>
+                <option value="single">Sencillos</option>
+                <option value="tour">Giras</option>
+                <option value="collab">Colaboraciones</option>
+            </select>
+        </div>
+        <div class="sort-options">
+            <select class="form-select">
+                <option value="recent">Más recientes</option>
+                <option value="name">Nombre (A-Z)</option>
+                <option value="status">Estado</option>
+                <option value="deadline">Fecha límite</option>
+            </select>
+        </div>
+        <button class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nuevo Proyecto
+        </button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+        <!-- Album Project -->
+        <div class="project-card card">
+            <div class="project-header">
+                <div class="project-type album">Álbum</div>
+                <div class="project-status active">Activo</div>
+            </div>
+            <div class="project-body">
+                <h3 class="project-title">Ecos del Silencio</h3>
+                <div class="project-meta">
+                    <div class="project-date"><i class="fas fa-calendar-alt"></i> Lanzamiento: 30 Jun 2025</div>
+                    <div class="project-tracks"><i class="fas fa-music"></i> 12 pistas</div>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-label">
+                        <span>Progreso</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="project-team">
+                    <div class="team-label">Equipo:</div>
+                    <div class="team-members">
+                        <div class="user-avatar" title="Carlos Productor">CP</div>
+                        <div class="user-avatar" title="María Manager">MM</div>
+                        <div class="user-avatar" title="Juan Ingeniero">JI</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-footer">
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-tasks"></i> Tareas
+                </button>
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-chart-line"></i> Analíticas
+                </button>
+            </div>
+        </div>
+
+        <!-- Single Project -->
+        <div class="project-card card">
+            <div class="project-header">
+                <div class="project-type single">Sencillo</div>
+                <div class="project-status completed">Completado</div>
+            </div>
+            <div class="project-body">
+                <h3 class="project-title">Amanecer</h3>
+                <div class="project-meta">
+                    <div class="project-date"><i class="fas fa-calendar-alt"></i> Lanzado: 15 May 2025</div>
+                    <div class="project-tracks"><i class="fas fa-music"></i> 1 pista</div>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-label">
+                        <span>Progreso</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="project-team">
+                    <div class="team-label">Equipo:</div>
+                    <div class="team-members">
+                        <div class="user-avatar" title="Carlos Productor">CP</div>
+                        <div class="user-avatar" title="María Manager">MM</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-footer">
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-tasks"></i> Tareas
+                </button>
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-chart-line"></i> Analíticas
+                </button>
+            </div>
+        </div>
+
+        <!-- Tour Project -->
+        <div class="project-card card">
+            <div class="project-header">
+                <div class="project-type tour">Gira</div>
+                <div class="project-status planning">Planificación</div>
+            </div>
+            <div class="project-body">
+                <h3 class="project-title">Gira Nacional 2025</h3>
+                <div class="project-meta">
+                    <div class="project-date"><i class="fas fa-calendar-alt"></i> Inicio: 15 Jul 2025</div>
+                    <div class="project-venues"><i class="fas fa-map-marker-alt"></i> 8 ciudades</div>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-label">
+                        <span>Progreso</span>
+                        <span>40%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 40%;"></div>
+                    </div>
+                </div>
+                <div class="project-team">
+                    <div class="team-label">Equipo:</div>
+                    <div class="team-members">
+                        <div class="user-avatar" title="María Manager">MM</div>
+                        <div class="user-avatar" title="Pedro Tour Manager">PT</div>
+                        <div class="user-avatar" title="Laura Logística">LL</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-footer">
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-tasks"></i> Tareas
+                </button>
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-map-marked-alt"></i> Mapa
+                </button>
+            </div>
+        </div>
+
+        <!-- Collaboration Project -->
+        <div class="project-card card">
+            <div class="project-header">
+                <div class="project-type collab">Colaboración</div>
+                <div class="project-status negotiation">Negociación</div>
+            </div>
+            <div class="project-body">
+                <h3 class="project-title">Feat. con Artista Internacional</h3>
+                <div class="project-meta">
+                    <div class="project-date"><i class="fas fa-calendar-alt"></i> Tentativo: Sep 2025</div>
+                    <div class="project-collab"><i class="fas fa-user-friends"></i> 2 artistas</div>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-label">
+                        <span>Progreso</span>
+                        <span>25%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 25%;"></div>
+                    </div>
+                </div>
+                <div class="project-team">
+                    <div class="team-label">Equipo:</div>
+                    <div class="team-members">
+                        <div class="user-avatar" title="María Manager">MM</div>
+                        <div class="user-avatar" title="Roberto Legal">RL</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-footer">
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-file-contract"></i> Contrato
+                </button>
+                <button class="btn btn-outline btn-sm">
+                    <i class="fas fa-comments"></i> Mensajes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Tasks -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Tareas Pendientes</h3>
+            <button class="btn btn-text">Ver todas</button>
+        </div>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Proyecto</th>
+                        <th>Asignado a</th>
+                        <th>Fecha límite</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Finalizar mezcla de pista 8</td>
+                        <td>Ecos del Silencio</td>
+                        <td>
+                            <div class="user-avatar" title="Juan Ingeniero">JI</div>
+                        </td>
+                        <td>25 May 2025</td>
+                        <td><span class="badge-pill badge-warning">En progreso</span></td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-check"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Confirmar venue en Guadalajara</td>
+                        <td>Gira Nacional 2025</td>
+                        <td>
+                            <div class="user-avatar" title="Pedro Tour Manager">PT</div>
+                        </td>
+                        <td>30 May 2025</td>
+                        <td><span class="badge-pill badge-primary">Pendiente</span></td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-check"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Revisar términos del contrato</td>
+                        <td>Feat. con Artista Internacional</td>
+                        <td>
+                            <div class="user-avatar" title="Roberto Legal">RL</div>
+                        </td>
+                        <td>28 May 2025</td>
+                        <td><span class="badge-pill badge-danger">Urgente</span></td>
+                        <td>
+                            <button class="btn btn-icon"><i class="fas fa-check"></i></button>
+                            <button class="btn btn-icon"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,247 @@
+<!-- Zeus IA Section -->
+<section id="zeus-section" class="section">
+    <div class="section-header">
+        <h2>Zeus IA</h2>
+        <p>Tu asistente inteligente para gestión musical y toma de decisiones</p>
+    </div>
+
+    <!-- Zeus Overview -->
+    <div class="zeus-overview card">
+        <div class="zeus-header">
+            <div class="zeus-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="zeus-info">
+                <h3>Zeus IA</h3>
+                <p>Asistente inteligente potenciado por Gemini 2.5 Pro</p>
+            </div>
+            <button class="btn btn-primary" id="activate-zeus-btn">
+                <i class="fas fa-microphone"></i> Activar Zeus
+            </button>
+        </div>
+        <div class="zeus-capabilities">
+            <div class="capability-item">
+                <div class="capability-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="capability-info">
+                    <h4>Análisis de Datos</h4>
+                    <p>Obtén insights valiosos sobre tu rendimiento en plataformas</p>
+                </div>
+            </div>
+            <div class="capability-item">
+                <div class="capability-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="capability-info">
+                    <h4>Gestión de Agenda</h4>
+                    <p>Organiza eventos, reuniones y recordatorios importantes</p>
+                </div>
+            </div>
+            <div class="capability-item">
+                <div class="capability-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="capability-info">
+                    <h4>Recomendaciones</h4>
+                    <p>Recibe sugerencias personalizadas para mejorar tu carrera</p>
+                </div>
+            </div>
+            <div class="capability-item">
+                <div class="capability-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="capability-info">
+                    <h4>Automatizaciones</h4>
+                    <p>Activa flujos de trabajo automáticos con comandos de voz</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zeus Chat Interface -->
+    <div class="zeus-interface card">
+        <div class="zeus-chat">
+            <div class="chat-messages" id="zeus-chat-messages">
+                <div class="chat-message zeus">
+                    <div class="chat-bubble">
+                        <p>¡Hola! Soy Zeus, tu asistente IA. ¿En qué puedo ayudarte hoy?</p>
+                    </div>
+                    <div class="chat-time">Ahora</div>
+                </div>
+                <div class="chat-message user">
+                    <div class="chat-bubble">
+                        <p>Muéstrame el rendimiento de mi último lanzamiento</p>
+                    </div>
+                    <div class="chat-time">Ahora</div>
+                </div>
+                <div class="chat-message zeus">
+                    <div class="chat-bubble">
+                        <p>Aquí tienes el rendimiento de "Amanecer" en los últimos 30 días:</p>
+                        <div class="zeus-chart-container">
+                            <img src="https://via.placeholder.com/600x300" alt="Gráfico de rendimiento">
+                        </div>
+                        <p>Destacados:</p>
+                        <ul>
+                            <li>450,230 reproducciones totales (+15% vs mes anterior)</li>
+                            <li>125,450 oyentes únicos</li>
+                            <li>Mayor crecimiento en Spotify y Apple Music</li>
+                            <li>Principales mercados: México, España, Colombia</li>
+                        </ul>
+                        <p>¿Quieres ver algún aspecto específico con más detalle?</p>
+                    </div>
+                    <div class="chat-time">Ahora</div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="zeus-chat-input" placeholder="Escribe tu mensaje o pregunta...">
+                <button id="zeus-chat-send"><i class="fas fa-paper-plane"></i></button>
+                <button id="zeus-chat-voice"><i class="fas fa-microphone"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zeus Commands -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Comandos Populares</h3>
+        </div>
+        <div class="commands-grid">
+            <div class="command-card">
+                <div class="command-text">"Muéstrame mis ingresos del último mes"</div>
+                <button class="btn btn-outline btn-sm command-try">Probar</button>
+            </div>
+            <div class="command-card">
+                <div class="command-text">"¿Cuál es mi canción con mejor rendimiento?"</div>
+                <button class="btn btn-outline btn-sm command-try">Probar</button>
+            </div>
+            <div class="command-card">
+                <div class="command-text">"Programa una reunión con mi equipo para mañana"</div>
+                <button class="btn btn-outline btn-sm command-try">Probar</button>
+            </div>
+            <div class="command-card">
+                <div class="command-text">"Genera un informe de rendimiento para compartir"</div>
+                <button class="btn btn-outline btn-sm command-try">Probar</button>
+            </div>
+            <div class="command-card">
+                <div class="command-text">"Analiza el feedback de los fans en redes sociales"</div>
+                <button class="btn btn-outline btn-sm command-try">Probar</button>
+            </div>
+            <div class="command-card">
+                <div class="command-text">"Compara mi rendimiento con artistas similares"</div>
+                <button class="btn btn-outline btn-sm command-try">Probar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zeus Automation -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Automatizaciones con Zeus</h3>
+        </div>
+        <div class="automation-list">
+            <div class="automation-item">
+                <div class="automation-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="automation-info">
+                    <h4>Publicación en Redes Sociales</h4>
+                    <p>Zeus puede programar y publicar contenido en todas tus redes sociales</p>
+                </div>
+                <div class="automation-actions">
+                    <button class="btn btn-primary">Configurar</button>
+                </div>
+            </div>
+            <div class="automation-item">
+                <div class="automation-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="automation-info">
+                    <h4>Campañas de Email</h4>
+                    <p>Crea y envía newsletters a tus fans con un simple comando</p>
+                </div>
+                <div class="automation-actions">
+                    <button class="btn btn-primary">Configurar</button>
+                </div>
+            </div>
+            <div class="automation-item">
+                <div class="automation-icon">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <div class="automation-info">
+                    <h4>Informes Automáticos</h4>
+                    <p>Recibe informes periódicos de rendimiento sin solicitarlos</p>
+                </div>
+                <div class="automation-actions">
+                    <button class="btn btn-primary">Configurar</button>
+                </div>
+            </div>
+            <div class="automation-item">
+                <div class="automation-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="automation-info">
+                    <h4>Alertas Inteligentes</h4>
+                    <p>Zeus te notificará sobre eventos importantes o anomalías en tus datos</p>
+                </div>
+                <div class="automation-actions">
+                    <button class="btn btn-primary">Configurar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zeus Settings -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Configuración de Zeus</h3>
+        </div>
+        <div class="settings-form">
+            <div class="form-group">
+                <label class="form-label">Modo de Interacción Preferido</label>
+                <div class="form-check">
+                    <input type="radio" name="interaction-mode" id="mode-text" class="form-check-input" checked>
+                    <label for="mode-text">Texto</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="interaction-mode" id="mode-voice" class="form-check-input">
+                    <label for="mode-voice">Voz</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="interaction-mode" id="mode-both" class="form-check-input">
+                    <label for="mode-both">Ambos</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nivel de Detalle en Respuestas</label>
+                <select class="form-select">
+                    <option value="concise">Conciso</option>
+                    <option value="balanced" selected>Equilibrado</option>
+                    <option value="detailed">Detallado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Notificaciones Proactivas</label>
+                <div class="form-check">
+                    <input type="checkbox" id="notify-trends" class="form-check-input" checked>
+                    <label for="notify-trends">Tendencias importantes</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="notify-anomalies" class="form-check-input" checked>
+                    <label for="notify-anomalies">Anomalías en datos</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="notify-deadlines" class="form-check-input" checked>
+                    <label for="notify-deadlines">Fechas límite próximas</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="notify-opportunities" class="form-check-input" checked>
+                    <label for="notify-opportunities">Oportunidades detectadas</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">Guardar Configuración</button>
+            </div>
+        </div>
+    </div>
+</section>
