@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtistRM 360</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="dark-theme"> <!-- Default to dark theme -->
+    <div class="app-container" id="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">ArtistRM 360</div>
+                <button class="sidebar-close" id="sidebar-close"><i class="fas fa-times"></i></button>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <!-- Navigation links will be loaded by JS -->
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info" id="user-info">
+                    <div class="user-avatar">U</div>
+                    <div class="user-details">
+                        <div class="user-name">Usuario</div>
+                        <div class="user-role">Artista</div>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Buscar...">
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <button id="theme-toggle"><i class="fas fa-sun"></i></button> <!-- Icon changes with theme -->
+                    <button id="notifications-toggle">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge" id="notifications-badge">3</span>
+                    </button>
+                    <button id="zeus-toggle" class="zeus-toggle"><i class="fas fa-robot"></i></button>
+                    <div class="user-avatar" id="user-avatar-top">U</div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area" id="content-area">
+                <!-- Page content will be loaded here -->
+                <section id="loading-section" class="section active">
+                    <div class="section-header">
+                        <h2 class="section-title">Cargando...</h2>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Zeus AI Modal -->
+        <div class="zeus-modal" id="zeus-modal">
+            <div class="zeus-header">
+                <h3>Asistente Zeus IA</h3>
+                <button id="zeus-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="zeus-content" id="zeus-content">
+                <div class="zeus-message assistant">Hola, soy Zeus. ¿Cómo puedo ayudarte?</div>
+                <!-- Chat messages here -->
+            </div>
+            <div class="zeus-input">
+                <input type="text" id="zeus-input-text" placeholder="Escribe tu comando...">
+                <button id="zeus-send"><i class="fas fa-paper-plane"></i></button>
+                <button id="zeus-voice"><i class="fas fa-microphone"></i></button>
+            </div>
+        </div>
+
+        <!-- Notifications Panel -->
+        <div class="notifications-panel" id="notifications-panel">
+             <div class="panel-header"><h3>Notificaciones</h3><button id="notifications-close"><i class="fas fa-times"></i></button></div>
+             <div class="panel-content" id="notifications-content">
+                 <p>Notificación 1...</p>
+                 <p>Notificación 2...</p>
+                 <p>Notificación 3...</p>
+             </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK (Add later if needed for auth/data) -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script> -->
+    <!-- ... other Firebase modules -->
+
+    <!-- Chart.js (Add later if needed for analytics) -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+    <!-- Custom Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!-- Finances Module -->
+<section id="finances-section" class="section active">
+    <div class="section-header">
+        <h2 class="section-title">Finanzas</h2>
+        <p class="section-subtitle">Gestión de ingresos, gastos y reportes financieros</p>
+    </div>
+
+    <!-- Date Range Selector -->
+    <div class="card mb-lg">
+        <div class="card-body">
+            <div class="flex justify-between items-center">
+                <div class="flex gap-md">
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <button class="btn btn-outline">Último trimestre <i class="fas fa-chevron-down"></i></button>
+                        <!-- Dropdown content would appear here -->
+                    </div>
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <button class="btn btn-outline">Todas las fuentes <i class="fas fa-chevron-down"></i></button>
+                        <!-- Dropdown content would appear here -->
+                    </div>
+                </div>
+                <div class="flex gap-md">
+                    <button class="btn btn-ghost"><i class="fas fa-sync-alt"></i> Actualizar</button>
+                    <button class="btn btn-ghost"><i class="fas fa-download"></i> Exportar</button>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Nueva transacción</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial Summary -->
+    <div class="grid grid-4 mb-lg">
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Ingresos Totales</p>
+                        <h3 class="card-title">$24,850</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 15.2% vs trimestre anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-dollar-sign" style="font-size: 2.5rem; color: var(--success);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Gastos Totales</p>
+                        <h3 class="card-title">$12,375</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-danger"></i> 8.7% vs trimestre anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-credit-card" style="font-size: 2.5rem; color: var(--danger);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Beneficio Neto</p>
+                        <h3 class="card-title">$12,475</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 22.5% vs trimestre anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line" style="font-size: 2.5rem; color: var(--primary);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Margen de Beneficio</p>
+                        <h3 class="card-title">50.2%</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 3.8% vs trimestre anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-percentage" style="font-size: 2.5rem; color: var(--warning);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue & Expenses Chart -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Ingresos y Gastos</h3>
+            <div>
+                <button class="btn btn-sm btn-ghost">Mensual</button>
+                <button class="btn btn-sm btn-ghost active">Trimestral</button>
+                <button class="btn btn-sm btn-ghost">Anual</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div id="revenue-expenses-chart" style="height: 400px; position: relative;">
+                <!-- Chart placeholder -->
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-chart-bar" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                        <p>Gráfico de ingresos y gastos</p>
+                        <p class="text-muted">Comparativa trimestral con tendencias</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue Sources and Expense Categories -->
+    <div class="grid grid-2 mb-lg">
+        <!-- Revenue Sources -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Fuentes de Ingresos</h3>
+            </div>
+            <div class="card-body">
+                <div id="revenue-sources-chart" style="height: 250px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-pie" style="font-size: 3rem; color: var(--success-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de fuentes de ingresos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-2 mt-md">
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                            <span>Streaming</span>
+                        </div>
+                        <h4>$12,450 (50%)</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--secondary);"></div>
+                            <span>Eventos</span>
+                        </div>
+                        <h4>$7,500 (30%)</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--success);"></div>
+                            <span>Merchandising</span>
+                        </div>
+                        <h4>$3,750 (15%)</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--warning);"></div>
+                            <span>Licencias</span>
+                        </div>
+                        <h4>$1,150 (5%)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expense Categories -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Categorías de Gastos</h3>
+            </div>
+            <div class="card-body">
+                <div id="expense-categories-chart" style="height: 250px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-pie" style="font-size: 3rem; color: var(--danger-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de categorías de gastos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-2 mt-md">
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                            <span>Producción</span>
+                        </div>
+                        <h4>$5,250 (42%)</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--secondary);"></div>
+                            <span>Marketing</span>
+                        </div>
+                        <h4>$3,100 (25%)</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--danger);"></div>
+                            <span>Equipo</span>
+                        </div>
+                        <h4>$2,475 (20%)</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--warning);"></div>
+                            <span>Otros</span>
+                        </div>
+                        <h4>$1,550 (13%)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Transacciones Recientes</h3>
+            <button class="btn btn-sm btn-ghost"><i class="fas fa-filter"></i> Filtrar</button>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Categoría</th>
+                            <th>Fuente/Destino</th>
+                            <th>Monto</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>22/05/2025</td>
+                            <td>Pago de regalías Spotify</td>
+                            <td>Streaming</td>
+                            <td>Spotify</td>
+                            <td class="text-success">+$1,250.00</td>
+                            <td><span class="badge-pill badge-success">Completado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>20/05/2025</td>
+                            <td>Pago estudio de grabación</td>
+                            <td>Producción</td>
+                            <td>Estudio Sonora</td>
+                            <td class="text-danger">-$850.00</td>
+                            <td><span class="badge-pill badge-success">Completado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18/05/2025</td>
+                            <td>Pago de regalías Apple Music</td>
+                            <td>Streaming</td>
+                            <td>Apple Music</td>
+                            <td class="text-success">+$985.00</td>
+                            <td><span class="badge-pill badge-success">Completado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>15/05/2025</td>
+                            <td>Campaña publicitaria Instagram</td>
+                            <td>Marketing</td>
+                            <td>Meta Ads</td>
+                            <td class="text-danger">-$450.00</td>
+                            <td><span class="badge-pill badge-success">Completado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12/05/2025</td>
+                            <td>Anticipo concierto Teatro Nacional</td>
+                            <td>Eventos</td>
+                            <td>Promotor XYZ</td>
+                            <td class="text-success">+$2,500.00</td>
+                            <td><span class="badge-pill badge-success">Completado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10/05/2025</td>
+                            <td>Pago de regalías YouTube</td>
+                            <td>Streaming</td>
+                            <td>YouTube</td>
+                            <td class="text-success">+$750.00</td>
+                            <td><span class="badge-pill badge-success">Completado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>05/05/2025</td>
+                            <td>Compra de equipo de sonido</td>
+                            <td>Equipo</td>
+                            <td>Music Pro</td>
+                            <td class="text-danger">-$1,200.00</td>
+                            <td><span class="badge-pill badge-success">Completado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-ghost">Ver todas las transacciones</button>
+        </div>
+    </div>
+
+    <!-- Pending Payments -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Pagos Pendientes</h3>
+            <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Nuevo recordatorio</button>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Fecha Esperada</th>
+                            <th>Descripción</th>
+                            <th>Fuente</th>
+                            <th>Monto Estimado</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>30/05/2025</td>
+                            <td>Pago de regalías Spotify (Mayo)</td>
+                            <td>Spotify</td>
+                            <td>~$1,300.00</td>
+                            <td><span class="badge-pill badge-warning">Pendiente</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-bell"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02/06/2025</td>
+                            <td>Pago de regalías Apple Music (Mayo)</td>
+                            <td>Apple Music</td>
+                            <td>~$950.00</td>
+                            <td><span class="badge-pill badge-warning">Pendiente</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-bell"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>15/06/2025</td>
+                            <td>Pago final concierto Teatro Nacional</td>
+                            <td>Promotor XYZ</td>
+                            <td>$5,000.00</td>
+                            <td><span class="badge-pill badge-warning">Pendiente</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-bell"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial Reports -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Informes Financieros</h3>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center gap-md mb-md">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.1); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-file-invoice-dollar" style="font-size: 1.5rem; color: var(--primary);"></i>
+                            </div>
+                            <h4>Estado de Resultados</h4>
+                        </div>
+                        <p>Informe trimestral de ingresos, gastos y beneficios con comparativa histórica.</p>
+                        <div class="flex justify-between mt-md">
+                            <span class="text-muted">Actualizado: 01/05/2025</span>
+                            <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i> PDF</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center gap-md mb-md">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: rgba(236, 72, 153, 0.1); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-chart-pie" style="font-size: 1.5rem; color: var(--secondary);"></i>
+                            </div>
+                            <h4>Análisis de Ingresos</h4>
+                        </div>
+                        <p>Desglose detallado de fuentes de ingresos por plataforma, región y contenido.</p>
+                        <div class="flex justify-between mt-md">
+                            <span class="text-muted">Actualizado: 01/05/2025</span>
+                            <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i> PDF</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center gap-md mb-md">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-calculator" style="font-size: 1.5rem; color: var(--success);"></i>
+                            </div>
+                            <h4>Proyección Financiera</h4>
+                        </div>
+                        <p>Estimación de ingresos y gastos para los próximos 6 meses basada en tendencias actuales.</p>
+                        <div class="flex justify-between mt-md">
+                            <span class="text-muted">Actualizado: 15/05/2025</span>
+                            <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i> PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-ghost">Ver todos los informes</button>
+        </div>
+    </div>
+</section>

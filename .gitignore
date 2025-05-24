@@ -1,0 +1,55 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias
+/node_modules
+/vendor
+
+# Archivos de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de compilación
+/build
+/dist
+/out
+
+# Archivos de registro
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Archivos de IDE y editores
+/.idea
+/.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Archivos de caché
+.cache
+.parcel-cache
+
+# Archivos de Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Archivos de configuración local
+firebase.json
+.firebaserc
+
+# Archivos de respaldo
+*.bak
+*.backup

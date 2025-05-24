@@ -1,0 +1,459 @@
+<!-- Projects Module -->
+<section id="projects-section" class="section active">
+    <div class="section-header">
+        <h2 class="section-title">Proyectos</h2>
+        <p class="section-subtitle">Gestión de álbumes, sencillos y colaboraciones</p>
+    </div>
+
+    <!-- Actions Bar -->
+    <div class="flex justify-between items-center mb-lg">
+        <div class="flex gap-md">
+            <button class="btn btn-primary"><i class="fas fa-plus btn-icon"></i> Nuevo Proyecto</button>
+            <div class="dropdown" style="position: relative; display: inline-block;">
+                <button class="btn btn-outline">Filtrar <i class="fas fa-chevron-down"></i></button>
+                <!-- Dropdown content would appear here -->
+            </div>
+        </div>
+        <div class="flex gap-md">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar proyectos...">
+            </div>
+            <button class="btn btn-ghost"><i class="fas fa-sort"></i> Ordenar</button>
+        </div>
+    </div>
+
+    <!-- Project Tabs -->
+    <div class="tabs mb-lg">
+        <button class="tab active">Todos (8)</button>
+        <button class="tab">Álbumes (3)</button>
+        <button class="tab">Sencillos (4)</button>
+        <button class="tab">Colaboraciones (1)</button>
+        <button class="tab">Archivados (2)</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-3 mb-xl">
+        <!-- Project Card 1 -->
+        <div class="card">
+            <div class="card-img" style="height: 160px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60') center/cover; position: relative;">
+                <span class="badge-pill badge-primary" style="position: absolute; top: 10px; right: 10px;">Álbum</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title mb-xs">Horizontes</h3>
+                <p class="text-muted mb-md">12 canciones • Lanzamiento: 15/08/2025</p>
+                <div class="progress mb-sm">
+                    <div class="progress-bar progress-primary" style="width: 75%;"></div>
+                </div>
+                <div class="flex justify-between mb-md">
+                    <span class="text-muted">75% completado</span>
+                    <span class="badge-pill badge-primary">En progreso</span>
+                </div>
+                <div class="flex gap-sm">
+                    <div class="avatar-group" style="display: flex;">
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; margin-right: -10px; border: 2px solid var(--bg-dark-light);">M</div>
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; margin-right: -10px; border: 2px solid var(--bg-dark-light);">J</div>
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; border: 2px solid var(--bg-dark-light);">S</div>
+                    </div>
+                    <span class="text-muted">3 colaboradores</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i> Ver</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-edit"></i> Editar</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="card">
+            <div class="card-img" style="height: 160px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60') center/cover; position: relative;">
+                <span class="badge-pill badge-primary" style="position: absolute; top: 10px; right: 10px;">Sencillo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title mb-xs">Amanecer</h3>
+                <p class="text-muted mb-md">1 canción • Lanzado: 10/05/2025</p>
+                <div class="progress mb-sm">
+                    <div class="progress-bar progress-success" style="width: 100%;"></div>
+                </div>
+                <div class="flex justify-between mb-md">
+                    <span class="text-muted">100% completado</span>
+                    <span class="badge-pill badge-success">Completado</span>
+                </div>
+                <div class="flex gap-sm">
+                    <div class="avatar-group" style="display: flex;">
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; margin-right: -10px; border: 2px solid var(--bg-dark-light);">M</div>
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; border: 2px solid var(--bg-dark-light);">J</div>
+                    </div>
+                    <span class="text-muted">2 colaboradores</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i> Ver</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-edit"></i> Editar</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="card">
+            <div class="card-img" style="height: 160px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60') center/cover; position: relative;">
+                <span class="badge-pill badge-primary" style="position: absolute; top: 10px; right: 10px;">Sencillo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title mb-xs">Atardecer</h3>
+                <p class="text-muted mb-md">1 canción • Lanzamiento: 20/06/2025</p>
+                <div class="progress mb-sm">
+                    <div class="progress-bar progress-primary" style="width: 60%;"></div>
+                </div>
+                <div class="flex justify-between mb-md">
+                    <span class="text-muted">60% completado</span>
+                    <span class="badge-pill badge-primary">En progreso</span>
+                </div>
+                <div class="flex gap-sm">
+                    <div class="avatar-group" style="display: flex;">
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; border: 2px solid var(--bg-dark-light);">M</div>
+                    </div>
+                    <span class="text-muted">1 colaborador</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i> Ver</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-edit"></i> Editar</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div class="card">
+            <div class="card-img" style="height: 160px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60') center/cover; position: relative;">
+                <span class="badge-pill badge-primary" style="position: absolute; top: 10px; right: 10px;">Colaboración</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title mb-xs">Estrellas ft. Artista XYZ</h3>
+                <p class="text-muted mb-md">1 canción • Lanzamiento: 05/07/2025</p>
+                <div class="progress mb-sm">
+                    <div class="progress-bar progress-primary" style="width: 40%;"></div>
+                </div>
+                <div class="flex justify-between mb-md">
+                    <span class="text-muted">40% completado</span>
+                    <span class="badge-pill badge-primary">En progreso</span>
+                </div>
+                <div class="flex gap-sm">
+                    <div class="avatar-group" style="display: flex;">
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; margin-right: -10px; border: 2px solid var(--bg-dark-light);">M</div>
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; margin-right: -10px; border: 2px solid var(--bg-dark-light);">X</div>
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; border: 2px solid var(--bg-dark-light);">P</div>
+                    </div>
+                    <span class="text-muted">3 colaboradores</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i> Ver</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-edit"></i> Editar</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div class="card">
+            <div class="card-img" style="height: 160px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60') center/cover; position: relative;">
+                <span class="badge-pill badge-primary" style="position: absolute; top: 10px; right: 10px;">Sencillo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title mb-xs">Noche Estrellada</h3>
+                <p class="text-muted mb-md">1 canción • Lanzamiento: 10/08/2025</p>
+                <div class="progress mb-sm">
+                    <div class="progress-bar progress-warning" style="width: 25%;"></div>
+                </div>
+                <div class="flex justify-between mb-md">
+                    <span class="text-muted">25% completado</span>
+                    <span class="badge-pill badge-warning">Planificación</span>
+                </div>
+                <div class="flex gap-sm">
+                    <div class="avatar-group" style="display: flex;">
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; margin-right: -10px; border: 2px solid var(--bg-dark-light);">M</div>
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; border: 2px solid var(--bg-dark-light);">L</div>
+                    </div>
+                    <span class="text-muted">2 colaboradores</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i> Ver</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-edit"></i> Editar</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+        </div>
+
+        <!-- Project Card 6 -->
+        <div class="card">
+            <div class="card-img" style="height: 160px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60') center/cover; position: relative;">
+                <span class="badge-pill badge-primary" style="position: absolute; top: 10px; right: 10px;">Álbum</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title mb-xs">Melodías del Alma</h3>
+                <p class="text-muted mb-md">10 canciones • Lanzamiento: 01/12/2025</p>
+                <div class="progress mb-sm">
+                    <div class="progress-bar progress-warning" style="width: 15%;"></div>
+                </div>
+                <div class="flex justify-between mb-md">
+                    <span class="text-muted">15% completado</span>
+                    <span class="badge-pill badge-warning">Planificación</span>
+                </div>
+                <div class="flex gap-sm">
+                    <div class="avatar-group" style="display: flex;">
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; margin-right: -10px; border: 2px solid var(--bg-dark-light);">M</div>
+                        <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px; border: 2px solid var(--bg-dark-light);">R</div>
+                    </div>
+                    <span class="text-muted">2 colaboradores</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i> Ver</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-edit"></i> Editar</button>
+                <button class="btn btn-ghost btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Timeline -->
+    <div class="card mb-xl">
+        <div class="card-header">
+            <h3 class="card-title">Línea de Tiempo de Proyectos</h3>
+            <div>
+                <button class="btn btn-sm btn-ghost active">Trimestre actual</button>
+                <button class="btn btn-sm btn-ghost">Próximo trimestre</button>
+                <button class="btn btn-sm btn-ghost">Todo el año</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div id="timeline-chart" style="height: 300px; position: relative;">
+                <!-- Timeline placeholder -->
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-stream" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                        <p>Línea de tiempo de proyectos</p>
+                        <p class="text-muted">Visualización de fechas de lanzamiento y plazos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Stats -->
+    <div class="grid grid-3 mb-lg">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Estado de Proyectos</h3>
+            </div>
+            <div class="card-body">
+                <div id="status-chart" style="height: 200px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-pie" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de estado de proyectos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-md">
+                    <div>
+                        <div class="flex items-center gap-sm">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                            <span>En progreso (3)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--success);"></div>
+                            <span>Completados (1)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--warning);"></div>
+                            <span>Planificación (2)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Tipos de Proyectos</h3>
+            </div>
+            <div class="card-body">
+                <div id="type-chart" style="height: 200px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-pie" style="font-size: 3rem; color: var(--secondary-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de tipos de proyectos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-md">
+                    <div>
+                        <div class="flex items-center gap-sm">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                            <span>Álbumes (2)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--secondary);"></div>
+                            <span>Sencillos (3)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--info);"></div>
+                            <span>Colaboraciones (1)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Colaboradores Principales</h3>
+            </div>
+            <div class="card-body">
+                <ul style="list-style: none; padding: 0;">
+                    <li class="flex justify-between items-center mb-md">
+                        <div class="flex items-center gap-md">
+                            <div class="user-avatar" style="width: 40px; height: 40px; font-size: 16px;">M</div>
+                            <div>
+                                <p class="mb-xs">María Rodríguez</p>
+                                <p class="text-muted">Productora</p>
+                            </div>
+                        </div>
+                        <span class="badge-pill badge-primary">6 proyectos</span>
+                    </li>
+                    <li class="flex justify-between items-center mb-md">
+                        <div class="flex items-center gap-md">
+                            <div class="user-avatar" style="width: 40px; height: 40px; font-size: 16px; background: linear-gradient(135deg, var(--secondary), var(--primary));">J</div>
+                            <div>
+                                <p class="mb-xs">Juan Pérez</p>
+                                <p class="text-muted">Ingeniero de sonido</p>
+                            </div>
+                        </div>
+                        <span class="badge-pill badge-primary">3 proyectos</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <div class="flex items-center gap-md">
+                            <div class="user-avatar" style="width: 40px; height: 40px; font-size: 16px; background: linear-gradient(135deg, var(--info), var(--primary));">S</div>
+                            <div>
+                                <p class="mb-xs">Sofía García</p>
+                                <p class="text-muted">Compositora</p>
+                            </div>
+                        </div>
+                        <span class="badge-pill badge-primary">2 proyectos</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-ghost">Ver todos los colaboradores</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Actividad Reciente en Proyectos</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Proyecto</th>
+                            <th>Actividad</th>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Horizontes</td>
+                            <td>Canción "Cielo Azul" completada</td>
+                            <td>
+                                <div class="flex items-center gap-sm">
+                                    <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px;">M</div>
+                                    <span>María R.</span>
+                                </div>
+                            </td>
+                            <td>Hoy, 10:25</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Atardecer</td>
+                            <td>Mezcla actualizada v2.3</td>
+                            <td>
+                                <div class="flex items-center gap-sm">
+                                    <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px;">J</div>
+                                    <span>Juan P.</span>
+                                </div>
+                            </td>
+                            <td>Hoy, 09:15</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Estrellas</td>
+                            <td>Comentarios añadidos a la letra</td>
+                            <td>
+                                <div class="flex items-center gap-sm">
+                                    <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px;">X</div>
+                                    <span>Artista XYZ</span>
+                                </div>
+                            </td>
+                            <td>Ayer, 18:30</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Amanecer</td>
+                            <td>Estadísticas de lanzamiento actualizadas</td>
+                            <td>
+                                <div class="flex items-center gap-sm">
+                                    <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px;">S</div>
+                                    <span>Sistema</span>
+                                </div>
+                            </td>
+                            <td>Ayer, 12:00</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Horizontes</td>
+                            <td>Fecha de lanzamiento actualizada</td>
+                            <td>
+                                <div class="flex items-center gap-sm">
+                                    <div class="user-avatar" style="width: 30px; height: 30px; font-size: 12px;">M</div>
+                                    <span>María R.</span>
+                                </div>
+                            </td>
+                            <td>22/05/2025</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-ghost">Ver toda la actividad</button>
+        </div>
+    </div>
+</section>

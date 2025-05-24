@@ -1,0 +1,337 @@
+<!-- Dashboard Module -->
+<section id="dashboard-section" class="section active">
+    <div class="section-header">
+        <h2 class="section-title">Dashboard</h2>
+        <p class="section-subtitle">Resumen de actividad y métricas clave</p>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="grid grid-4 mb-lg">
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Reproducciones</p>
+                        <h3 class="card-title">128,459</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 12.5% vs mes anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-play-circle" style="font-size: 2.5rem; color: var(--primary);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Ingresos</p>
+                        <h3 class="card-title">$4,285</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 8.3% vs mes anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-dollar-sign" style="font-size: 2.5rem; color: var(--success);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Seguidores</p>
+                        <h3 class="card-title">24,853</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 5.2% vs mes anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-users" style="font-size: 2.5rem; color: var(--secondary);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Próximos Eventos</p>
+                        <h3 class="card-title">3</h3>
+                        <p class="text-muted">Próximo: 15 de junio</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-calendar" style="font-size: 2.5rem; color: var(--warning);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performance Chart -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Rendimiento por Plataforma</h3>
+            <div>
+                <button class="btn btn-sm btn-ghost">Diario</button>
+                <button class="btn btn-sm btn-ghost">Semanal</button>
+                <button class="btn btn-sm btn-ghost active">Mensual</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div id="performance-chart" style="height: 300px; position: relative;">
+                <!-- Chart placeholder -->
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                        <p>Gráfico de rendimiento por plataforma</p>
+                        <p class="text-muted">Datos de reproducciones, ingresos y engagement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity and Projects -->
+    <div class="grid grid-2 mb-lg">
+        <!-- Recent Activity -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Actividad Reciente</h3>
+                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+            <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                <div class="activity-item flex mb-md">
+                    <div class="activity-icon" style="background-color: rgba(99, 102, 241, 0.1); color: var(--primary); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p class="mb-xs"><strong>Nuevo lanzamiento</strong> - "Amanecer" alcanzó 10,000 reproducciones</p>
+                        <p class="text-muted">Hace 2 horas</p>
+                    </div>
+                </div>
+                <div class="activity-item flex mb-md">
+                    <div class="activity-icon" style="background-color: rgba(236, 72, 153, 0.1); color: var(--secondary); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p class="mb-xs"><strong>Nuevo comentario</strong> en el video "Detrás de escenas"</p>
+                        <p class="text-muted">Hace 5 horas</p>
+                    </div>
+                </div>
+                <div class="activity-item flex mb-md">
+                    <div class="activity-icon" style="background-color: rgba(16, 185, 129, 0.1); color: var(--success); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p class="mb-xs"><strong>Pago recibido</strong> - $1,250 de Spotify</p>
+                        <p class="text-muted">Hace 1 día</p>
+                    </div>
+                </div>
+                <div class="activity-item flex mb-md">
+                    <div class="activity-icon" style="background-color: rgba(245, 158, 11, 0.1); color: var(--warning); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p class="mb-xs"><strong>Evento confirmado</strong> - Concierto en Teatro Nacional</p>
+                        <p class="text-muted">Hace 2 días</p>
+                    </div>
+                </div>
+                <div class="activity-item flex">
+                    <div class="activity-icon" style="background-color: rgba(59, 130, 246, 0.1); color: var(--info); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p class="mb-xs"><strong>Contrato firmado</strong> - Colaboración con Artista XYZ</p>
+                        <p class="text-muted">Hace 3 días</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-ghost">Ver todas las actividades</button>
+            </div>
+        </div>
+
+        <!-- Current Projects -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Proyectos Actuales</h3>
+                <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Nuevo</button>
+            </div>
+            <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                <div class="project-item mb-md">
+                    <div class="flex justify-between mb-xs">
+                        <h4>Álbum "Horizontes"</h4>
+                        <span class="badge-pill badge-primary">En progreso</span>
+                    </div>
+                    <p class="text-muted mb-sm">Fecha de lanzamiento: 15/08/2025</p>
+                    <div class="progress mb-xs">
+                        <div class="progress-bar progress-primary" style="width: 75%;"></div>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-muted">75% completado</span>
+                        <span class="text-muted">9 de 12 canciones</span>
+                    </div>
+                </div>
+                <div class="project-item mb-md">
+                    <div class="flex justify-between mb-xs">
+                        <h4>Videoclip "Amanecer"</h4>
+                        <span class="badge-pill badge-success">Completado</span>
+                    </div>
+                    <p class="text-muted mb-sm">Lanzado: 10/05/2025</p>
+                    <div class="progress mb-xs">
+                        <div class="progress-bar progress-success" style="width: 100%;"></div>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-muted">100% completado</span>
+                        <span class="text-muted">10,000+ vistas</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="flex justify-between mb-xs">
+                        <h4>Gira "Nuevos Horizontes"</h4>
+                        <span class="badge-pill badge-warning">Planificación</span>
+                    </div>
+                    <p class="text-muted mb-sm">Inicio: 01/09/2025</p>
+                    <div class="progress mb-xs">
+                        <div class="progress-bar progress-warning" style="width: 30%;"></div>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-muted">30% completado</span>
+                        <span class="text-muted">3 de 10 ciudades</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-ghost">Ver todos los proyectos</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Platform Distribution -->
+    <div class="grid grid-2 mb-lg">
+        <!-- Platform Distribution -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Distribución por Plataforma</h3>
+                <div>
+                    <button class="btn btn-sm btn-ghost active">Reproducciones</button>
+                    <button class="btn btn-sm btn-ghost">Ingresos</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="platform-chart" style="height: 250px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-pie" style="font-size: 3rem; color: var(--secondary-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de distribución por plataforma</p>
+                            <p class="text-muted">Spotify, Apple Music, YouTube, etc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audience Demographics -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Demografía de Audiencia</h3>
+                <div>
+                    <button class="btn btn-sm btn-ghost active">Edad</button>
+                    <button class="btn btn-sm btn-ghost">Ubicación</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="demographics-chart" style="height: 250px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-users" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de demografía de audiencia</p>
+                            <p class="text-muted">Distribución por edad, género y ubicación</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Próximos Eventos</h3>
+            <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Nuevo</button>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Evento</th>
+                            <th>Fecha</th>
+                            <th>Ubicación</th>
+                            <th>Capacidad</th>
+                            <th>Ventas</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Concierto Teatro Nacional</td>
+                            <td>15/06/2025</td>
+                            <td>Madrid, España</td>
+                            <td>1,500</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 85%;"></div>
+                                </div>
+                                <span>85%</span>
+                            </td>
+                            <td><span class="badge-pill badge-success">Confirmado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Festival Verano</td>
+                            <td>22/07/2025</td>
+                            <td>Barcelona, España</td>
+                            <td>5,000</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 60%;"></div>
+                                </div>
+                                <span>60%</span>
+                            </td>
+                            <td><span class="badge-pill badge-success">Confirmado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gira Latinoamérica</td>
+                            <td>10/09/2025</td>
+                            <td>Múltiples ciudades</td>
+                            <td>Varía</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-warning" style="width: 30%;"></div>
+                                </div>
+                                <span>30%</span>
+                            </td>
+                            <td><span class="badge-pill badge-warning">Planificación</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-ghost">Ver todos los eventos</button>
+        </div>
+    </div>
+</section>

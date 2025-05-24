@@ -1,0 +1,958 @@
+<!-- CRM de Fans Module -->
+<section id="crm-section" class="section active">
+    <div class="section-header">
+        <h2 class="section-title">CRM de Fans</h2>
+        <p class="section-subtitle">Gestión de audiencia, segmentación y campañas</p>
+    </div>
+
+    <!-- Actions Bar -->
+    <div class="flex justify-between items-center mb-lg">
+        <div class="flex gap-md">
+            <button class="btn btn-primary"><i class="fas fa-plus btn-icon"></i> Nueva Campaña</button>
+            <button class="btn btn-outline"><i class="fas fa-users btn-icon"></i> Nuevo Segmento</button>
+            <div class="dropdown" style="position: relative; display: inline-block;">
+                <button class="btn btn-outline">Filtrar <i class="fas fa-chevron-down"></i></button>
+                <!-- Dropdown content would appear here -->
+            </div>
+        </div>
+        <div class="flex gap-md">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar fans...">
+            </div>
+            <button class="btn btn-ghost"><i class="fas fa-sort"></i> Ordenar</button>
+            <button class="btn btn-ghost"><i class="fas fa-download"></i> Exportar</button>
+        </div>
+    </div>
+
+    <!-- Audience Overview -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Resumen de Audiencia</h3>
+            <div>
+                <button class="btn btn-sm btn-ghost active">7 días</button>
+                <button class="btn btn-sm btn-ghost">30 días</button>
+                <button class="btn btn-sm btn-ghost">90 días</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-4 mb-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-muted mb-xs">Fans Totales</p>
+                                <h3 class="card-title">24,853</h3>
+                                <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 12.5% vs periodo anterior</p>
+                            </div>
+                            <div class="card-icon">
+                                <i class="fas fa-users" style="font-size: 2.5rem; color: var(--primary);"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-muted mb-xs">Nuevos Suscriptores</p>
+                                <h3 class="card-title">1,285</h3>
+                                <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 8.3% vs periodo anterior</p>
+                            </div>
+                            <div class="card-icon">
+                                <i class="fas fa-user-plus" style="font-size: 2.5rem; color: var(--success);"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-muted mb-xs">Tasa de Engagement</p>
+                                <h3 class="card-title">8.7%</h3>
+                                <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 1.2% vs periodo anterior</p>
+                            </div>
+                            <div class="card-icon">
+                                <i class="fas fa-heart" style="font-size: 2.5rem; color: var(--secondary);"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-muted mb-xs">Valor Promedio</p>
+                                <h3 class="card-title">$12.50</h3>
+                                <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 5.2% vs periodo anterior</p>
+                            </div>
+                            <div class="card-icon">
+                                <i class="fas fa-dollar-sign" style="font-size: 2.5rem; color: var(--warning);"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-2">
+                <div id="audience-growth-chart" style="height: 300px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de crecimiento de audiencia</p>
+                            <p class="text-muted">Tendencia de nuevos fans y engagement</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="audience-sources-chart" style="height: 300px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-pie" style="font-size: 3rem; color: var(--secondary-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de fuentes de audiencia</p>
+                            <p class="text-muted">Distribución por plataforma y origen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audience Segments -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Segmentos de Audiencia</h3>
+            <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Nuevo Segmento</button>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Segmento</th>
+                            <th>Descripción</th>
+                            <th>Fans</th>
+                            <th>Engagement</th>
+                            <th>Valor</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background-color: var(--primary-light); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-star" style="color: var(--primary);"></i>
+                                    </div>
+                                    <span>Super Fans</span>
+                                </div>
+                            </td>
+                            <td>Fans con alta interacción y compras</td>
+                            <td>1,250</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-success" style="width: 95%;"></div>
+                                </div>
+                                <span>95%</span>
+                            </td>
+                            <td>$45.75</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background-color: var(--secondary-light); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-music" style="color: var(--secondary);"></i>
+                                    </div>
+                                    <span>Fans Activos</span>
+                                </div>
+                            </td>
+                            <td>Fans con interacción regular</td>
+                            <td>5,780</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 75%;"></div>
+                                </div>
+                                <span>75%</span>
+                            </td>
+                            <td>$18.25</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background-color: var(--success-light); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-map-marker-alt" style="color: var(--success);"></i>
+                                    </div>
+                                    <span>Fans España</span>
+                                </div>
+                            </td>
+                            <td>Fans ubicados en España</td>
+                            <td>8,450</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 65%;"></div>
+                                </div>
+                                <span>65%</span>
+                            </td>
+                            <td>$15.50</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background-color: var(--warning-light); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-globe-americas" style="color: var(--warning);"></i>
+                                    </div>
+                                    <span>Fans Latinoamérica</span>
+                                </div>
+                            </td>
+                            <td>Fans ubicados en Latinoamérica</td>
+                            <td>6,320</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 70%;"></div>
+                                </div>
+                                <span>70%</span>
+                            </td>
+                            <td>$8.75</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background-color: var(--info-light); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-calendar-alt" style="color: var(--info);"></i>
+                                    </div>
+                                    <span>Nuevos Fans</span>
+                                </div>
+                            </td>
+                            <td>Fans registrados en los últimos 30 días</td>
+                            <td>1,285</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-warning" style="width: 45%;"></div>
+                                </div>
+                                <span>45%</span>
+                            </td>
+                            <td>$5.25</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-ghost">Ver todos los segmentos</button>
+        </div>
+    </div>
+
+    <!-- Campaigns -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Campañas</h3>
+            <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Nueva Campaña</button>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Campaña</th>
+                            <th>Segmento</th>
+                            <th>Tipo</th>
+                            <th>Fecha</th>
+                            <th>Alcance</th>
+                            <th>Conversión</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: linear-gradient(135deg, var(--primary), var(--secondary)) center/cover;"></div>
+                                    <span>Lanzamiento Nuevo Single</span>
+                                </div>
+                            </td>
+                            <td>Todos los fans</td>
+                            <td>Email + Push</td>
+                            <td>15/05/2025</td>
+                            <td>24,853</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-success" style="width: 82%;"></div>
+                                </div>
+                                <span>82%</span>
+                            </td>
+                            <td><span class="badge-pill badge-success">Completada</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-copy"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: linear-gradient(135deg, var(--warning), var(--danger)) center/cover;"></div>
+                                    <span>Pre-venta Concierto Madrid</span>
+                                </div>
+                            </td>
+                            <td>Fans España</td>
+                            <td>Email</td>
+                            <td>01/05/2025</td>
+                            <td>8,450</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-success" style="width: 75%;"></div>
+                                </div>
+                                <span>75%</span>
+                            </td>
+                            <td><span class="badge-pill badge-success">Completada</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-copy"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: linear-gradient(135deg, var(--info), var(--primary)) center/cover;"></div>
+                                    <span>Descuento Merchandising</span>
+                                </div>
+                            </td>
+                            <td>Super Fans</td>
+                            <td>Email + SMS</td>
+                            <td>10/05/2025</td>
+                            <td>1,250</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-success" style="width: 92%;"></div>
+                                </div>
+                                <span>92%</span>
+                            </td>
+                            <td><span class="badge-pill badge-success">Completada</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-copy"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: linear-gradient(135deg, var(--success), var(--info)) center/cover;"></div>
+                                    <span>Anuncio Gira Latinoamérica</span>
+                                </div>
+                            </td>
+                            <td>Fans Latinoamérica</td>
+                            <td>Email + Push</td>
+                            <td>20/05/2025</td>
+                            <td>6,320</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 68%;"></div>
+                                </div>
+                                <span>68%</span>
+                            </td>
+                            <td><span class="badge-pill badge-primary">En curso</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-pause"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: linear-gradient(135deg, var(--primary), var(--info)) center/cover;"></div>
+                                    <span>Bienvenida Nuevos Fans</span>
+                                </div>
+                            </td>
+                            <td>Nuevos Fans</td>
+                            <td>Email</td>
+                            <td>Automática</td>
+                            <td>1,285</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 100%;"></div>
+                                </div>
+                                <span>100%</span>
+                            </td>
+                            <td><span class="badge-pill badge-info">Automática</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-ghost">Ver todas las campañas</button>
+        </div>
+    </div>
+
+    <!-- Campaign Details -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Detalle de Campaña</h3>
+            <div>
+                <button class="btn btn-sm btn-outline">Editar</button>
+                <button class="btn btn-sm btn-primary">Duplicar</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div>
+                    <div style="height: 200px; border-radius: 8px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') center/cover; margin-bottom: 1.5rem;"></div>
+                    
+                    <h3 class="mb-md">Lanzamiento Nuevo Single</h3>
+                    <div class="flex items-center gap-md mb-md">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.1); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-users" style="font-size: 1.2rem; color: var(--primary);"></i>
+                        </div>
+                        <div>
+                            <p class="text-muted mb-xs">Segmento</p>
+                            <p>Todos los fans (24,853)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-md mb-md">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(236, 72, 153, 0.1); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-paper-plane" style="font-size: 1.2rem; color: var(--secondary);"></i>
+                        </div>
+                        <div>
+                            <p class="text-muted mb-xs">Canales</p>
+                            <p>Email + Notificaciones Push</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-md mb-md">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-calendar" style="font-size: 1.2rem; color: var(--success);"></i>
+                        </div>
+                        <div>
+                            <p class="text-muted mb-xs">Fecha de Envío</p>
+                            <p>15 de mayo, 2025 • 10:00h</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-md mb-md">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(245, 158, 11, 0.1); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-tag" style="font-size: 1.2rem; color: var(--warning);"></i>
+                        </div>
+                        <div>
+                            <p class="text-muted mb-xs">Estado</p>
+                            <p><span class="badge-pill badge-success">Completada</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="card mb-md">
+                        <div class="card-header">
+                            <h4 class="card-title">Resultados</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-3 mb-lg">
+                                <div>
+                                    <p class="text-muted mb-xs">Tasa de Apertura</p>
+                                    <h3>82%</h3>
+                                    <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 12% vs promedio</p>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Tasa de Clics</p>
+                                    <h3>45%</h3>
+                                    <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 8% vs promedio</p>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Conversiones</p>
+                                    <h3>12,850</h3>
+                                    <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 15% vs promedio</p>
+                                </div>
+                            </div>
+                            <div id="campaign-results-chart" style="height: 200px; position: relative;">
+                                <!-- Chart placeholder -->
+                                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                                    <div style="text-align: center;">
+                                        <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                                        <p>Gráfico de resultados de campaña</p>
+                                        <p class="text-muted">Métricas de rendimiento por hora</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Contenido</h4>
+                            <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i> Vista previa</button>
+                        </div>
+                        <div class="card-body">
+                            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+                                    <p><strong>Asunto:</strong> 🎵 ¡Nuevo Single "Amanecer" ya disponible!</p>
+                                </div>
+                                <div>
+                                    <p><strong>Contenido:</strong> Hola [Nombre],</p>
+                                    <p>¡Estamos emocionados de anunciar que nuestro nuevo single "Amanecer" ya está disponible en todas las plataformas digitales!</p>
+                                    <p>Escúchalo ahora y compártelo con tus amigos.</p>
+                                    <p>Botón CTA: Escuchar Ahora</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-md">
+                                <div style="width: 40px; height: 40px; border-radius: 4px; background-color: var(--primary-light); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-link" style="color: var(--primary);"></i>
+                                </div>
+                                <div>
+                                    <p class="mb-xs">URL de destino</p>
+                                    <p class="text-muted">https://open.spotify.com/track/amanecer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fan Profiles -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Perfiles de Fans</h3>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar por nombre o email...">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Fan</th>
+                            <th>Email</th>
+                            <th>Ubicación</th>
+                            <th>Segmentos</th>
+                            <th>Engagement</th>
+                            <th>Valor</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div class="user-avatar" style="width: 40px; height: 40px; font-size: 16px;">M</div>
+                                    <div>
+                                        <p class="mb-xs">María García</p>
+                                        <p class="text-muted">Desde: 01/01/2025</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>maria.garcia@email.com</td>
+                            <td>Madrid, España</td>
+                            <td>
+                                <div class="flex gap-sm">
+                                    <span class="badge-pill badge-primary">Super Fan</span>
+                                    <span class="badge-pill badge-success">España</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-success" style="width: 95%;"></div>
+                                </div>
+                                <span>95%</span>
+                            </td>
+                            <td>$85.50</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div class="user-avatar" style="width: 40px; height: 40px; font-size: 16px;">J</div>
+                                    <div>
+                                        <p class="mb-xs">Juan Pérez</p>
+                                        <p class="text-muted">Desde: 15/01/2025</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>juan.perez@email.com</td>
+                            <td>Barcelona, España</td>
+                            <td>
+                                <div class="flex gap-sm">
+                                    <span class="badge-pill badge-secondary">Activo</span>
+                                    <span class="badge-pill badge-success">España</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 75%;"></div>
+                                </div>
+                                <span>75%</span>
+                            </td>
+                            <td>$42.25</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div class="user-avatar" style="width: 40px; height: 40px; font-size: 16px;">L</div>
+                                    <div>
+                                        <p class="mb-xs">Laura Rodríguez</p>
+                                        <p class="text-muted">Desde: 05/02/2025</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>laura.rodriguez@email.com</td>
+                            <td>Ciudad de México, México</td>
+                            <td>
+                                <div class="flex gap-sm">
+                                    <span class="badge-pill badge-primary">Super Fan</span>
+                                    <span class="badge-pill badge-warning">Latinoamérica</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-success" style="width: 90%;"></div>
+                                </div>
+                                <span>90%</span>
+                            </td>
+                            <td>$65.75</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div class="user-avatar" style="width: 40px; height: 40px; font-size: 16px;">C</div>
+                                    <div>
+                                        <p class="mb-xs">Carlos Gómez</p>
+                                        <p class="text-muted">Desde: 10/02/2025</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>carlos.gomez@email.com</td>
+                            <td>Bogotá, Colombia</td>
+                            <td>
+                                <div class="flex gap-sm">
+                                    <span class="badge-pill badge-secondary">Activo</span>
+                                    <span class="badge-pill badge-warning">Latinoamérica</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 70%;"></div>
+                                </div>
+                                <span>70%</span>
+                            </td>
+                            <td>$38.50</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div class="user-avatar" style="width: 40px; height: 40px; font-size: 16px;">A</div>
+                                    <div>
+                                        <p class="mb-xs">Ana Martínez</p>
+                                        <p class="text-muted">Desde: 15/05/2025</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>ana.martinez@email.com</td>
+                            <td>Valencia, España</td>
+                            <td>
+                                <div class="flex gap-sm">
+                                    <span class="badge-pill badge-info">Nuevo</span>
+                                    <span class="badge-pill badge-success">España</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-warning" style="width: 45%;"></div>
+                                </div>
+                                <span>45%</span>
+                            </td>
+                            <td>$12.25</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-paper-plane"></i></button>
+                                <button class="btn btn-sm btn-ghost"><i class="fas fa-ellipsis-h"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="flex justify-between">
+                <div>
+                    <button class="btn btn-sm btn-ghost"><i class="fas fa-chevron-left"></i></button>
+                    <span class="mx-md">Página 1 de 5</span>
+                    <button class="btn btn-sm btn-ghost"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <button class="btn btn-ghost">Ver todos los fans</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fan Profile Detail -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Perfil de Fan</h3>
+            <div>
+                <button class="btn btn-sm btn-outline">Editar</button>
+                <button class="btn btn-sm btn-primary">Enviar Mensaje</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-2">
+                <div>
+                    <div class="flex items-center gap-lg mb-lg">
+                        <div class="user-avatar" style="width: 80px; height: 80px; font-size: 32px;">M</div>
+                        <div>
+                            <h3 class="mb-xs">María García</h3>
+                            <p class="text-muted">Fan desde: 01/01/2025 (5 meses)</p>
+                            <div class="flex gap-sm mt-sm">
+                                <span class="badge-pill badge-primary">Super Fan</span>
+                                <span class="badge-pill badge-success">España</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-md">
+                        <div class="card-header">
+                            <h4 class="card-title">Información de Contacto</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="flex items-center gap-md mb-md">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.1); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-envelope" style="font-size: 1.2rem; color: var(--primary);"></i>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Email</p>
+                                    <p>maria.garcia@email.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-md mb-md">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(236, 72, 153, 0.1); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-mobile-alt" style="font-size: 1.2rem; color: var(--secondary);"></i>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Teléfono</p>
+                                    <p>+34 612 345 678</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-md">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-map-marker-alt" style="font-size: 1.2rem; color: var(--success);"></i>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Ubicación</p>
+                                    <p>Madrid, España</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-md">
+                        <div class="card-header">
+                            <h4 class="card-title">Preferencias</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="flex items-center gap-md mb-md">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.1); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-bell" style="font-size: 1.2rem; color: var(--primary);"></i>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Notificaciones</p>
+                                    <div class="flex gap-sm">
+                                        <span class="badge-pill badge-success">Email</span>
+                                        <span class="badge-pill badge-success">Push</span>
+                                        <span class="badge-pill badge-success">SMS</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-md mb-md">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(236, 72, 153, 0.1); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-language" style="font-size: 1.2rem; color: var(--secondary);"></i>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Idioma</p>
+                                    <p>Español</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-md">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-music" style="font-size: 1.2rem; color: var(--success);"></i>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Intereses</p>
+                                    <div class="flex gap-sm">
+                                        <span class="badge-pill badge-primary">Conciertos</span>
+                                        <span class="badge-pill badge-primary">Merchandising</span>
+                                        <span class="badge-pill badge-primary">Exclusivos</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="card mb-md">
+                        <div class="card-header">
+                            <h4 class="card-title">Actividad</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-3 mb-lg">
+                                <div>
+                                    <p class="text-muted mb-xs">Tasa de Apertura</p>
+                                    <h3>95%</h3>
+                                    <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 15% vs promedio</p>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Tasa de Clics</p>
+                                    <h3>82%</h3>
+                                    <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 22% vs promedio</p>
+                                </div>
+                                <div>
+                                    <p class="text-muted mb-xs">Valor Total</p>
+                                    <h3>$85.50</h3>
+                                    <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> $73 vs promedio</p>
+                                </div>
+                            </div>
+                            <div id="fan-activity-chart" style="height: 200px; position: relative;">
+                                <!-- Chart placeholder -->
+                                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                                    <div style="text-align: center;">
+                                        <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                                        <p>Gráfico de actividad del fan</p>
+                                        <p class="text-muted">Interacciones por mes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-md">
+                        <div class="card-header">
+                            <h4 class="card-title">Historial de Compras</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul style="list-style: none; padding: 0;">
+                                <li class="flex justify-between items-center mb-sm">
+                                    <div>
+                                        <p class="mb-xs">Entrada VIP Concierto Madrid</p>
+                                        <p class="text-muted">15/04/2025</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-success">$45.00</p>
+                                    </div>
+                                </li>
+                                <li class="flex justify-between items-center mb-sm">
+                                    <div>
+                                        <p class="mb-xs">Camiseta Oficial Tour 2025</p>
+                                        <p class="text-muted">10/03/2025</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-success">$25.50</p>
+                                    </div>
+                                </li>
+                                <li class="flex justify-between items-center">
+                                    <div>
+                                        <p class="mb-xs">Vinilo Edición Limitada</p>
+                                        <p class="text-muted">05/02/2025</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-success">$15.00</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Historial de Campañas</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul style="list-style: none; padding: 0;">
+                                <li class="flex justify-between items-center mb-sm">
+                                    <div>
+                                        <p class="mb-xs">Lanzamiento Nuevo Single</p>
+                                        <p class="text-muted">15/05/2025</p>
+                                    </div>
+                                    <div>
+                                        <span class="badge-pill badge-success">Abierto</span>
+                                        <span class="badge-pill badge-success">Clic</span>
+                                    </div>
+                                </li>
+                                <li class="flex justify-between items-center mb-sm">
+                                    <div>
+                                        <p class="mb-xs">Pre-venta Concierto Madrid</p>
+                                        <p class="text-muted">01/05/2025</p>
+                                    </div>
+                                    <div>
+                                        <span class="badge-pill badge-success">Abierto</span>
+                                        <span class="badge-pill badge-success">Clic</span>
+                                        <span class="badge-pill badge-success">Compra</span>
+                                    </div>
+                                </li>
+                                <li class="flex justify-between items-center">
+                                    <div>
+                                        <p class="mb-xs">Descuento Merchandising</p>
+                                        <p class="text-muted">10/05/2025</p>
+                                    </div>
+                                    <div>
+                                        <span class="badge-pill badge-success">Abierto</span>
+                                        <span class="badge-pill badge-success">Clic</span>
+                                        <span class="badge-pill badge-success">Compra</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

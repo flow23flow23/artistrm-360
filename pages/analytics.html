@@ -1,0 +1,464 @@
+<!-- Analytics Module -->
+<section id="analytics-section" class="section active">
+    <div class="section-header">
+        <h2 class="section-title">Analytics</h2>
+        <p class="section-subtitle">Análisis de datos y métricas de rendimiento</p>
+    </div>
+
+    <!-- Date Range Selector -->
+    <div class="card mb-lg">
+        <div class="card-body">
+            <div class="flex justify-between items-center">
+                <div class="flex gap-md">
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <button class="btn btn-outline">Últimos 30 días <i class="fas fa-chevron-down"></i></button>
+                        <!-- Dropdown content would appear here -->
+                    </div>
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <button class="btn btn-outline">Todas las plataformas <i class="fas fa-chevron-down"></i></button>
+                        <!-- Dropdown content would appear here -->
+                    </div>
+                </div>
+                <div class="flex gap-md">
+                    <button class="btn btn-ghost"><i class="fas fa-sync-alt"></i> Actualizar</button>
+                    <button class="btn btn-ghost"><i class="fas fa-download"></i> Exportar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="grid grid-4 mb-lg">
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Reproducciones Totales</p>
+                        <h3 class="card-title">128,459</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 12.5% vs periodo anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-play-circle" style="font-size: 2.5rem; color: var(--primary);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Ingresos Generados</p>
+                        <h3 class="card-title">$4,285</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 8.3% vs periodo anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-dollar-sign" style="font-size: 2.5rem; color: var(--success);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Nuevos Seguidores</p>
+                        <h3 class="card-title">1,853</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 5.2% vs periodo anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-users" style="font-size: 2.5rem; color: var(--secondary);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-muted mb-xs">Engagement Rate</p>
+                        <h3 class="card-title">8.7%</h3>
+                        <p class="text-muted"><i class="fas fa-arrow-up text-success"></i> 1.2% vs periodo anterior</p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="fas fa-heart" style="font-size: 2.5rem; color: var(--warning);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performance Chart -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Rendimiento por Plataforma</h3>
+            <div>
+                <button class="btn btn-sm btn-ghost">Diario</button>
+                <button class="btn btn-sm btn-ghost">Semanal</button>
+                <button class="btn btn-sm btn-ghost active">Mensual</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div id="performance-chart" style="height: 400px; position: relative;">
+                <!-- Chart placeholder -->
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                        <p>Gráfico de rendimiento por plataforma</p>
+                        <p class="text-muted">Datos de reproducciones, ingresos y engagement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Platform Distribution and Demographics -->
+    <div class="grid grid-2 mb-lg">
+        <!-- Platform Distribution -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Distribución por Plataforma</h3>
+                <div>
+                    <button class="btn btn-sm btn-ghost active">Reproducciones</button>
+                    <button class="btn btn-sm btn-ghost">Ingresos</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="platform-chart" style="height: 300px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-pie" style="font-size: 3rem; color: var(--secondary-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de distribución por plataforma</p>
+                            <p class="text-muted">Spotify, Apple Music, YouTube, etc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-3 mt-md">
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                            <span>Spotify</span>
+                        </div>
+                        <h4>45%</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--secondary);"></div>
+                            <span>Apple Music</span>
+                        </div>
+                        <h4>25%</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--success);"></div>
+                            <span>YouTube</span>
+                        </div>
+                        <h4>20%</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audience Demographics -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Demografía de Audiencia</h3>
+                <div>
+                    <button class="btn btn-sm btn-ghost active">Edad</button>
+                    <button class="btn btn-sm btn-ghost">Género</button>
+                    <button class="btn btn-sm btn-ghost">Ubicación</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="demographics-chart" style="height: 300px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-users" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de demografía de audiencia</p>
+                            <p class="text-muted">Distribución por edad, género y ubicación</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-3 mt-md">
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                            <span>18-24</span>
+                        </div>
+                        <h4>35%</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--secondary);"></div>
+                            <span>25-34</span>
+                        </div>
+                        <h4>40%</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-sm mb-xs">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--success);"></div>
+                            <span>35-44</span>
+                        </div>
+                        <h4>15%</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Performance -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Rendimiento por Contenido</h3>
+            <button class="btn btn-sm btn-ghost"><i class="fas fa-download"></i> Exportar</button>
+        </div>
+        <div class="card-body">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Contenido</th>
+                            <th>Tipo</th>
+                            <th>Plataforma</th>
+                            <th>Reproducciones</th>
+                            <th>Engagement</th>
+                            <th>Ingresos</th>
+                            <th>Tendencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60') center/cover;"></div>
+                                    <span>Amanecer</span>
+                                </div>
+                            </td>
+                            <td>Audio</td>
+                            <td>Spotify</td>
+                            <td>45,245</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-success" style="width: 85%;"></div>
+                                </div>
+                                <span>85%</span>
+                            </td>
+                            <td>$1,250</td>
+                            <td><i class="fas fa-arrow-up text-success"></i> 12%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60') center/cover;"></div>
+                                    <span>Amanecer</span>
+                                </div>
+                            </td>
+                            <td>Audio</td>
+                            <td>Apple Music</td>
+                            <td>28,532</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-success" style="width: 78%;"></div>
+                                </div>
+                                <span>78%</span>
+                            </td>
+                            <td>$985</td>
+                            <td><i class="fas fa-arrow-up text-success"></i> 8%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60') center/cover;"></div>
+                                    <span>Amanecer - Videoclip</span>
+                                </div>
+                            </td>
+                            <td>Video</td>
+                            <td>YouTube</td>
+                            <td>32,732</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-success" style="width: 82%;"></div>
+                                </div>
+                                <span>82%</span>
+                            </td>
+                            <td>$750</td>
+                            <td><i class="fas fa-arrow-up text-success"></i> 15%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60') center/cover;"></div>
+                                    <span>Detrás de Escenas</span>
+                                </div>
+                            </td>
+                            <td>Video</td>
+                            <td>YouTube</td>
+                            <td>12,421</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-primary" style="width: 65%;"></div>
+                                </div>
+                                <span>65%</span>
+                            </td>
+                            <td>$320</td>
+                            <td><i class="fas fa-arrow-up text-success"></i> 8%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flex items-center gap-md">
+                                    <div style="width: 40px; height: 40px; border-radius: 4px; background: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60') center/cover;"></div>
+                                    <span>Cielo Azul (Preview)</span>
+                                </div>
+                            </td>
+                            <td>Audio</td>
+                            <td>Spotify</td>
+                            <td>9,532</td>
+                            <td>
+                                <div class="progress" style="width: 100px;">
+                                    <div class="progress-bar progress-warning" style="width: 45%;"></div>
+                                </div>
+                                <span>45%</span>
+                            </td>
+                            <td>$180</td>
+                            <td><i class="fas fa-arrow-up text-success"></i> 22%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-ghost">Ver todos los contenidos</button>
+        </div>
+    </div>
+
+    <!-- Geographic Distribution -->
+    <div class="card mb-lg">
+        <div class="card-header">
+            <h3 class="card-title">Distribución Geográfica</h3>
+            <div>
+                <button class="btn btn-sm btn-ghost active">Reproducciones</button>
+                <button class="btn btn-sm btn-ghost">Ingresos</button>
+                <button class="btn btn-sm btn-ghost">Engagement</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div id="map-chart" style="height: 400px; position: relative;">
+                <!-- Map placeholder -->
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-globe" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                        <p>Mapa de distribución geográfica</p>
+                        <p class="text-muted">Visualización global de audiencia y métricas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Growth Trends -->
+    <div class="grid grid-2 mb-lg">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Tendencias de Crecimiento</h3>
+                <div>
+                    <button class="btn btn-sm btn-ghost active">6 meses</button>
+                    <button class="btn btn-sm btn-ghost">1 año</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="growth-chart" style="height: 300px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--success-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico de tendencias de crecimiento</p>
+                            <p class="text-muted">Seguidores, reproducciones e ingresos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Comparativa con Competencia</h3>
+                <div>
+                    <button class="btn btn-sm btn-ghost active">Reproducciones</button>
+                    <button class="btn btn-sm btn-ghost">Engagement</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="competition-chart" style="height: 300px; position: relative;">
+                    <!-- Chart placeholder -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-bar" style="font-size: 3rem; color: var(--info-light); margin-bottom: 1rem;"></i>
+                            <p>Gráfico comparativo con competencia</p>
+                            <p class="text-muted">Análisis de posicionamiento en el mercado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Recomendaciones Basadas en Datos</h3>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center gap-md mb-md">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: rgba(99, 102, 241, 0.1); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-bullhorn" style="font-size: 1.5rem; color: var(--primary);"></i>
+                            </div>
+                            <h4>Marketing</h4>
+                        </div>
+                        <p>Aumentar promoción en Instagram para alcanzar audiencia de 18-24 años, que muestra mayor engagement pero menor alcance.</p>
+                        <div class="flex justify-between mt-md">
+                            <span class="badge-pill badge-primary">Alta prioridad</span>
+                            <button class="btn btn-sm btn-ghost"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center gap-md mb-md">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: rgba(236, 72, 153, 0.1); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-music" style="font-size: 1.5rem; color: var(--secondary);"></i>
+                            </div>
+                            <h4>Contenido</h4>
+                        </div>
+                        <p>Crear más contenido tipo "detrás de escenas" que muestra una tendencia de crecimiento del 22% en engagement.</p>
+                        <div class="flex justify-between mt-md">
+                            <span class="badge-pill badge-primary">Alta prioridad</span>
+                            <button class="btn btn-sm btn-ghost"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex items-center gap-md mb-md">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-globe" style="font-size: 1.5rem; color: var(--success);"></i>
+                            </div>
+                            <h4>Mercados</h4>
+                        </div>
+                        <p>Expandir presencia en México y Colombia, donde hay crecimiento de audiencia pero baja monetización.</p>
+                        <div class="flex justify-between mt-md">
+                            <span class="badge-pill badge-warning">Media prioridad</span>
+                            <button class="btn btn-sm btn-ghost"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-ghost">Ver todas las recomendaciones</button>
+        </div>
+    </div>
+</section>
