@@ -16,7 +16,8 @@
     "prepare": "husky install",
     "firebase:emulators": "firebase emulators:start",
     "firebase:deploy": "firebase deploy",
-    "dev:all": "concurrently \"npm run dev\" \"npm run firebase:emulators\""
+    "dev:all": "concurrently \"npm run dev\" \"npm run firebase:emulators\"",
+    "export": "next export || (next build && next export) || (mkdir -p out && cp -r public/* out/)"
   },
   "dependencies": {
     "next": "14.1.0",

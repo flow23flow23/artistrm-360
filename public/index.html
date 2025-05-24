@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtistRM 360 - Plataforma de Gestión para Artistas</title>
+    <style>
+        :root {
+            --primary-color: #6200ea;
+            --secondary-color: #03dac6;
+            --background-dark: #121212;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --card-bg: #1e1e1e;
+            --accent: #bb86fc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #9d4edd);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--accent);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-description {
+            color: var(--text-secondary);
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), #9d4edd);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4);
+        }
+        
+        footer {
+            background-color: #0a0a0a;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ArtistRM 360</div>
+        <div class="tagline">La plataforma integral para gestionar tu carrera artística y maximizar tu potencial creativo</div>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">Potencia tu carrera artística</h2>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Dashboard Inteligente</h3>
+                <p class="feature-description">Visualiza todos tus proyectos, métricas y tareas pendientes en un solo lugar. Toma decisiones informadas basadas en datos en tiempo real.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3 class="feature-title">Gestión de Proyectos</h3>
+                <p class="feature-description">Organiza tus lanzamientos, giras y colaboraciones con herramientas especializadas para artistas y productores musicales.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">Zeus IA</h3>
+                <p class="feature-description">Asistente de inteligencia artificial que te ayuda a optimizar tu tiempo, generar ideas creativas y automatizar tareas repetitivas.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3 class="feature-title">Gestión Financiera</h3>
+                <p class="feature-description">Controla tus ingresos, gastos y regalías en una interfaz intuitiva diseñada específicamente para la industria musical.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3 class="feature-title">Integración Completa</h3>
+                <p class="feature-description">Conecta con todas tus plataformas favoritas: Spotify, Apple Music, YouTube, Instagram y muchas más en un solo ecosistema.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">Acceso Multiplataforma</h3>
+                <p class="feature-description">Accede a tu cuenta desde cualquier dispositivo, en cualquier momento y lugar. Tu estudio siempre contigo.</p>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>¿Listo para revolucionar tu carrera artística?</h2>
+            <p>Únete a miles de artistas que ya están optimizando su trabajo con ArtistRM 360</p>
+            <button class="cta-button">Próximamente - Regístrate para acceso anticipado</button>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 ArtistRM 360. Todos los derechos reservados.</p>
+            <p>Plataforma en construcción - Versión Beta</p>
+        </div>
+    </footer>
+</body>
+</html>
