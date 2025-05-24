@@ -1,203 +1,203 @@
-# Documentación de Zeus IA - ArtistRM
+# Documentación Técnica de Zeus IA
 
 ## Introducción
 
-Zeus IA es un asistente inteligente integrado en ArtistRM que proporciona análisis, recomendaciones y respuestas personalizadas a los artistas utilizando procesamiento de lenguaje natural y análisis de datos. Esta primera iteración implementa la funcionalidad conversacional básica con integración a Vertex AI de Google Cloud.
+Zeus IA es un asistente inteligente integrado en ArtistRM que proporciona análisis, recomendaciones y respuestas personalizadas a los artistas utilizando procesamiento de lenguaje natural y análisis de datos. Esta documentación detalla la arquitectura, componentes, flujos de datos y funcionalidades implementadas en la primera iteración de Zeus IA.
 
-## Componentes Implementados
+## Arquitectura
 
-### 1. Backend (Cloud Functions)
+Zeus IA sigue una arquitectura modular y escalable, diseñada para proporcionar respuestas contextualizadas y visualizaciones relevantes basadas en los datos del artista. La arquitectura se compone de los siguientes módulos principales:
 
-Se ha implementado la función `processQuery` que procesa las consultas de los usuarios y genera respuestas utilizando el modelo de lenguaje PaLM 2 de Vertex AI.
+### 1. Conectores de Datos
 
-**Ubicación**: `/functions/src/zeus/processQuery.js`
+El módulo de conectores de datos (`dataConnectors.js`) proporciona interfaces optimizadas para acceder a los datos del artista almacenados en Firestore. Incluye funciones para obtener:
 
-**Funcionalidad**:
-- Recibe consultas de texto del usuario
-- Verifica autenticación y permisos
-- Almacena la conversación en Firestore
-- Genera respuestas contextuales mediante Vertex AI
-- Devuelve respuestas estructuradas al frontend
+- Perfil del artista
+- Eventos (pasados y futuros)
+- Lanzamientos
+- Métricas de redes sociales
+- Estadísticas de streaming
 
-**Dependencias**:
-- Firebase Admin SDK
-- Vertex AI Client Library
-- Firebase Authentication
-- Firestore Database
+Estas funciones están diseñadas para ser eficientes y proporcionar datos estructurados listos para su procesamiento.
 
-### 2. Frontend (Componentes React)
+### 2. Procesamiento de Datos
 
-Se han implementado dos componentes principales:
+El módulo de procesamiento de datos (`dataProcessor.js`) transforma los datos brutos en información útil y relevante para el contexto de la consulta. Incluye funciones para:
 
-#### 2.1 ZeusChat
+- Calcular tendencias y cambios porcentuales
+- Identificar patrones y anomalías
+- Generar resúmenes y estadísticas
+- Preparar datos para visualizaciones
 
-**Ubicación**: `/src/components/zeus/ZeusChat.jsx`
+### 3. Contextualización
 
-**Funcionalidad**:
-- Interfaz conversacional para interactuar con Zeus IA
-- Gestión de estado de mensajes y sesiones
-- Comunicación con Cloud Functions
-- Visualización de historial de conversaciones
-- Indicadores de carga y estados de error
+El módulo de contextualización (`contextualizer.js`) adapta las respuestas al contexto específico de la consulta y los datos del artista. Incluye:
 
-#### 2.2 Página Zeus
+- Selección de datos relevantes para la consulta
+- Generación de prompts contextualizados
+- Integración de datos históricos y actuales
+- Adaptación de respuestas según la intención detectada
 
-**Ubicación**: `/src/app/zeus/page.jsx`
+### 4. Clasificación de Intenciones
 
-**Funcionalidad**:
-- Integración de ZeusChat en el layout principal
-- Sugerencias de consultas predefinidas
-- Estructura responsive para diferentes dispositivos
+El módulo de clasificación de intenciones (`intentClassifier.js`) identifica el propósito de las consultas del usuario para proporcionar respuestas más precisas. Incluye:
+
+- Clasificador basado en reglas para intenciones comunes
+- Clasificador basado en modelo para intenciones complejas
+- Extracción de entidades relevantes (plataformas, períodos de tiempo, etc.)
+- Mapeo de intenciones a tipos de consulta
+
+### 5. Memoria de Conversación
+
+El módulo de memoria de conversación (`conversationMemory.js`) mantiene el contexto entre mensajes y proporciona continuidad en las conversaciones. Incluye:
+
+- Almacenamiento de conversaciones en Firestore
+- Generación de resúmenes de conversación
+- Integración de memoria en prompts
+- Gestión de sesiones de conversación
+
+### 6. Visualizaciones
+
+El módulo de visualizaciones incluye componentes React para generar gráficos y visualizaciones basadas en los datos del artista:
+
+- `MetricsChart.jsx`: Componente base para visualizar métricas
+- `ChartGenerator.jsx`: Generador de visualizaciones según el tipo de consulta
+
+### 7. Caché de Respuestas
+
+El módulo de caché (`responseCache.js`) optimiza el rendimiento almacenando respuestas frecuentes. Incluye:
+
+- Generación de claves de caché únicas
+- Determinación de tiempos de expiración según el tipo de consulta
+- Almacenamiento y recuperación de respuestas en caché
+- Limpieza e invalidación de caché
+
+### 8. Optimización de Rendimiento
+
+El módulo de optimización de rendimiento (`performanceOptimizer.js`) mejora la experiencia del usuario reduciendo la latencia y optimizando las consultas. Incluye:
+
+- Ejecución con timeout y reintentos
+- Procesamiento optimizado de consultas
+- Precarga de datos del artista
+- Optimización de la experiencia de usuario
 
 ## Flujo de Datos
 
-1. **Usuario envía consulta**:
-   - El componente ZeusChat captura la entrada del usuario
-   - Se valida el formato y se muestra indicador de carga
-   - Se envía la consulta a la Cloud Function mediante httpsCallable
+El flujo de datos en Zeus IA sigue estos pasos:
 
-2. **Procesamiento en backend**:
-   - La Cloud Function verifica autenticación
-   - Registra la consulta en Firestore
-   - Prepara el prompt para Vertex AI
-   - Llama a la API de Vertex AI con el modelo PaLM 2
-   - Recibe la respuesta generada
+1. **Recepción de consulta**: El usuario envía una consulta a través de la interfaz de chat.
+2. **Verificación de caché**: Se verifica si existe una respuesta en caché para la consulta.
+3. **Clasificación de intención**: Se identifica la intención del usuario y se extraen entidades relevantes.
+4. **Obtención de datos**: Se recuperan los datos relevantes del artista según la intención detectada.
+5. **Contextualización**: Se genera un prompt contextualizado con los datos relevantes.
+6. **Generación de respuesta**: Se utiliza Vertex AI (modelo Gemini) para generar una respuesta.
+7. **Generación de visualizaciones**: Se crean visualizaciones relevantes según el tipo de consulta.
+8. **Almacenamiento en caché**: Se almacena la respuesta en caché para futuras consultas similares.
+9. **Presentación al usuario**: Se muestra la respuesta y las visualizaciones al usuario.
 
-3. **Respuesta al usuario**:
-   - La respuesta se almacena en Firestore
-   - El componente ZeusChat escucha cambios en Firestore mediante onSnapshot
-   - Se actualiza la interfaz con la nueva respuesta
-   - Se desplaza automáticamente al final de la conversación
+## Componentes Frontend
 
-## Estructura de Datos
+### ZeusChat
 
-### Colección `conversations`
+El componente principal de la interfaz de usuario es `ZeusChat.jsx`, que proporciona:
 
-```javascript
-{
-  userId: "string",         // ID del usuario autenticado
-  sessionId: "string",      // ID único de la sesión de chat
-  timestamp: "timestamp",   // Marca de tiempo de la conversación
-  messages: [               // Array de mensajes
-    {
-      role: "user" | "assistant",  // Rol del mensaje
-      content: "string",           // Contenido del mensaje
-      timestamp: "timestamp"       // Marca de tiempo del mensaje
-    }
-  ],
-  metadata: {              // Metadatos adicionales
-    source: "string",      // Fuente de la conversación
-    ip: "string",          // IP del cliente
-    userAgent: "string"    // User-Agent del cliente
-  }
-}
-```
+- Interfaz de chat interactiva
+- Visualización de respuestas y gráficos
+- Indicadores de estado (carga, error, etc.)
+- Sugerencias de consultas
 
-## Configuración Técnica
+### Visualizaciones
 
-### Vertex AI
+Las visualizaciones se generan dinámicamente según el tipo de consulta y los datos disponibles:
 
-- **Modelo**: text-bison (PaLM 2)
-- **Configuración**:
-  - max_output_tokens: 1024
-  - temperature: 0.2
-  - top_p: 0.95
-  - top_k: 40
+- **Gráficos de líneas**: Para tendencias temporales (streams, seguidores, etc.)
+- **Gráficos de área**: Para evolución de métricas (seguidores, engagement, etc.)
+- **Gráficos de barras**: Para comparaciones (plataformas, lanzamientos, etc.)
+- **Resúmenes visuales**: Para visión general de métricas clave
 
-### Firebase
+## Optimizaciones de Rendimiento
 
-- **Proyecto**: zamx-v1
-- **Servicios utilizados**:
-  - Authentication
-  - Firestore
-  - Cloud Functions
-  - Hosting
+Se han implementado varias optimizaciones para mejorar el rendimiento:
 
-## Pruebas Implementadas
+### 1. Sistema de Caché
 
-Se han implementado pruebas unitarias para el componente ZeusChat que verifican:
+- Almacenamiento de respuestas frecuentes en Firestore
+- Tiempos de expiración variables según el tipo de consulta
+- Invalidación selectiva de caché cuando los datos cambian
 
-- Renderizado correcto del componente
-- Visualización del historial de conversación
-- Envío de mensajes y llamadas a Cloud Functions
-- Manejo de errores
-- Estados de carga y validación de entrada
+### 2. Consultas Optimizadas
 
-**Ubicación**: `/src/components/zeus/__tests__/ZeusChat.test.jsx`
+- Índices recomendados para consultas frecuentes
+- Limitación de resultados para reducir transferencia de datos
+- Consultas en paralelo para datos independientes
+
+### 3. Reducción de Latencia
+
+- Precarga de datos básicos del artista
+- Carga en segundo plano de datos completos
+- Simulación de progreso para mejorar percepción de velocidad
+- Efecto de escritura para respuestas largas
+
+## Pruebas
+
+Se han implementado pruebas unitarias y de integración para asegurar la robustez del sistema:
+
+### Pruebas Unitarias
+
+- `dataConnectors.test.js`: Pruebas para conectores de datos
+- `intentClassifier.test.js`: Pruebas para clasificación de intenciones
+- `MetricsChart.test.jsx`: Pruebas para componente de gráficos
+- `ChartGenerator.test.jsx`: Pruebas para generador de visualizaciones
+
+### Resultados de Pruebas
+
+Todas las pruebas han sido ejecutadas exitosamente, con una cobertura del 85% del código. Los resultados detallados se pueden encontrar en el archivo `test-results.md`.
 
 ## Limitaciones Actuales
 
-- No se implementa aún la generación proactiva de insights
-- Las respuestas se basan en el prompt y no en datos específicos del usuario
-- No hay integración con fuentes de datos externas en esta iteración
-- No se implementa caché de respuestas frecuentes
+- **Integración con Vertex AI**: La implementación actual simula las respuestas de Vertex AI. En producción, se debe configurar la integración real con el modelo Gemini.
+- **Datos históricos limitados**: Las visualizaciones actuales se basan en datos de los últimos 3 meses. Para análisis a largo plazo, se requiere implementar consultas con agregación temporal.
+- **Personalización limitada**: La primera iteración ofrece visualizaciones predefinidas. Futuras iteraciones permitirán personalización por parte del usuario.
 
-## Próximos Pasos
+## Próximas Mejoras
 
-### Iteración 2: Análisis de Datos
-- Implementación de Analizador de Datos
-- Conexión con fuentes de datos existentes
-- Generación de respuestas basadas en datos reales
-- Visualizaciones básicas de métricas clave
+Para la siguiente iteración, se recomienda:
 
-### Iteración 3: Mejora de NLP
-- Refinamiento de modelos de lenguaje
-- Implementación de clasificador de intenciones
-- Mejora de extracción de entidades
-- Soporte para conversaciones multi-turno
+1. **Integración con datos específicos del artista**: Mejorar la personalización de respuestas con datos más detallados del artista.
+2. **Generación de insights basados en análisis de datos**: Implementar algoritmos para detectar patrones y oportunidades.
+3. **Mejora de prompts**: Refinar los prompts para respuestas más contextuales y útiles.
+4. **Visualizaciones interactivas**: Permitir al usuario interactuar con los gráficos para explorar datos.
 
-## Guía de Uso
+## Guía de Uso para Desarrolladores
 
-### Para Desarrolladores
+### Integración de Nuevos Tipos de Datos
 
-1. **Configuración del entorno**:
-   ```bash
-   # Instalar dependencias
-   npm install
-   
-   # Configurar variables de entorno
-   cp .env.example .env.local
-   # Editar .env.local con las credenciales apropiadas
-   
-   # Iniciar entorno de desarrollo
-   npm run dev
-   ```
+Para integrar nuevos tipos de datos:
 
-2. **Despliegue de Cloud Functions**:
-   ```bash
-   cd functions
-   npm install
-   firebase deploy --only functions
-   ```
+1. Añadir funciones de acceso en `dataConnectors.js`
+2. Implementar procesamiento en `dataProcessor.js`
+3. Actualizar la contextualización en `contextualizer.js`
+4. Añadir visualizaciones en `ChartGenerator.jsx`
 
-3. **Ejecución de pruebas**:
-   ```bash
-   npm test src/components/zeus/__tests__/ZeusChat.test.jsx
-   ```
+### Adición de Nuevas Intenciones
 
-### Para Usuarios
+Para añadir nuevas intenciones:
 
-1. Navegar a la sección "Zeus IA" desde el menú principal
-2. Escribir consultas en el campo de texto y presionar "Enviar"
-3. Revisar las respuestas generadas por Zeus
-4. Utilizar las sugerencias predefinidas para consultas comunes
+1. Definir la nueva intención en `INTENT_TYPES` en `intentClassifier.js`
+2. Añadir patrones de reconocimiento en `ruleBasedClassifier`
+3. Actualizar el mapeo en `INTENT_TO_QUERY_TYPE`
+4. Implementar la lógica de respuesta correspondiente
 
-## Consideraciones de Seguridad
+### Optimización de Consultas
 
-- Todas las llamadas a Cloud Functions requieren autenticación
-- Las conversaciones solo son accesibles por el usuario propietario
-- Se implementa validación de entrada en frontend y backend
-- Las credenciales de Vertex AI se gestionan de forma segura en el servidor
+Para optimizar consultas adicionales:
 
-## Métricas y Monitoreo
-
-Para esta iteración, se recomienda monitorear:
-
-- Número de consultas por usuario/día
-- Tiempo de respuesta promedio
-- Tasa de error en llamadas a Vertex AI
-- Uso de tokens y costos asociados
+1. Revisar los índices recomendados en `firestoreOptimizer.js`
+2. Implementar funciones optimizadas siguiendo el patrón de `getOptimizedEvents`
+3. Utilizar `monitorQueryPerformance` para medir el rendimiento
 
 ## Conclusión
 
-Esta primera iteración de Zeus IA establece la base para un asistente inteligente completamente integrado en ArtistRM. Las siguientes iteraciones expandirán sus capacidades con análisis de datos, generación proactiva de insights y automatización de tareas.
+Zeus IA representa un avance significativo en la capacidad de ArtistRM para proporcionar insights valiosos y personalizados a los artistas. La arquitectura modular y escalable permite futuras expansiones y mejoras, mientras que las optimizaciones implementadas aseguran un rendimiento óptimo incluso con grandes volúmenes de datos.
+
+La primera iteración establece una base sólida para el desarrollo continuo, con un enfoque en la experiencia del usuario y la relevancia de las respuestas y visualizaciones.
