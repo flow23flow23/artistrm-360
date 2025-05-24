@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-          cache: 'npm'
+          # Eliminada la opción de caché que requiere package-lock.json
 
       - name: Install dependencies
         run: npm install --no-audit --legacy-peer-deps
